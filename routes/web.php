@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'homeController@index');
+
+Route::get('/listado', 'homeController@listado')->name('home.listado');
