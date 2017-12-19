@@ -14,3 +14,6 @@
 Route::get('/', 'homeController@index');
 
 Route::get('/listado', 'homeController@listado')->name('home.listado');
+
+Route::get('datatable', ['uses'=>'PostController@datatable']);
+Route::get('datatable/getUsers', ['as'=>'datatable.getUsers','uses'=>'PostController@getUsers']);
