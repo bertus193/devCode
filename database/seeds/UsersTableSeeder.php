@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
-class AgendaTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,9 +13,9 @@ class AgendaTableSeeder extends Seeder
     public function run()
     {
         if (App::environment()!=='production') {
-            DB::table('agenda')->delete();
+            DB::table('users')->delete();
             
-            factory(App\agenda::class, 100)->create();
+            factory(App\User::class, 100)->create();
         }
     }
 }

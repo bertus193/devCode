@@ -3,11 +3,11 @@
 
 
 @section('contenido')
-<h2>Listado de personas</h2>
+<h2>Listado de users</h2>
 
 <ul>
 @foreach ($lista as $p)
-    <li>{{$p->nombre}}</li>
+    <li>{{$p->name}}</li>
 @endforeach
 </ul>
 
