@@ -1,5 +1,5 @@
 <nav>
 <ul>
-    <li><a href="{{route('home.listado')}}">Listado</a></li>
+    <li><a href="{{route('cursos')}}">Cursos</a></li>
 </ul>
 </nav>

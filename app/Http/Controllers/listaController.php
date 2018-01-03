@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Datatables;
 use DB;
 
-class PostController extends Controller
+class listaController extends Controller
 {
     /**
      * Show the application dashboard.

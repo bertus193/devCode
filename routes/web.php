@@ -13,7 +13,7 @@
 
 Route::get('/', 'homeController@index');
 
-Route::get('/listado', 'homeController@listado')->name('home.listado');
+Route::get('/cursos', 'homeController@cursos')->name('cursos');
 
-Route::get('datatable', ['uses'=>'PostController@datatable']);
-Route::get('datatable/getUsers', ['as'=>'datatable.getUsers','uses'=>'PostController@getUsers']);
+Route::get('datatable', ['uses'=>'listaController@datatable']);
+Route::get('datatable/getUsers', ['as'=>'datatable.getUsers','uses'=>'listaController@getUsers']);

@@ -5,7 +5,7 @@
 @section('contenido')
 
 <ul>
-@foreach ($lista as $p)
+@foreach ($cursos as $p)
     <li>{{$p->name}}</li>
 @endforeach
 </ul>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use View;
 
-use App\User;
+use App\Curso;
 
 class homeController extends Controller
 {
@@ -13,9 +13,9 @@ class homeController extends Controller
         return View::make('home/principal');
     }
     
-    public function listado() {
-        $users = User::all();
+    public function cursos() {
+        $cursos = Curso::all();
         
-        return View::make('home/listado')->with('lista', $users);
+        return View::make('cursos')->with('cursos', $cursos);
     }
 }
