@@ -1,0 +1,73 @@
+.home-header{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-position: 0
+}
+
+.home-header__image{
+    background: #122109 url("https://s3-us-west-2.amazonaws.com/devcodepro/img/fondo/fondo.jpg") no-repeat center top / cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    filter: none;
+    z-index: 80;
+    background-size: cover;
+}
+
+.home-header__background {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    filter: none;
+    z-index: 81;
+    background: #000;
+    opacity: .75;
+}
+
+.home-header-content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -o-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -o-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 120px 0;
+    position: relative;
+    z-index: 90;
+}
+
+.home-header-content__title {
+    color: #fff;
+    text-align: center;
+    max-width: 700px;
+}
+
+.home-header-content__slogan {
+    font-size: 1rem;
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+    color: #fff;
+    padding: 27px 0 38px 0;
+}

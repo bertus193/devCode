@@ -1,0 +1,15 @@
+body {
+    color: #1b2432;
+    font: 15px "proxima-nova",sans-serif;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.inner-body{
+    margin:20px;
+}
+
+.bg-light{
+    color:black !important;
+}

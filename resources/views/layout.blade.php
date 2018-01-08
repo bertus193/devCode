@@ -2,31 +2,33 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Mi flamante proyecto con Lrvl</title>
-        @yield('head')
+        <title>DevCode</title>
         
-        {{HTML::style('css/bootstrap.css')}}
-        {{HTML::style('css/app.css')}}
-        @yield('css')
-        
+        {{HTML::style('css/lib/bootstrap.css')}}
+        {{HTML::style('css/devCode.css')}}
+        {{HTML::style('css/menu/header.css')}}
+
         {{HTML::script('js/jquery-3.2.1.js')}}
         {{HTML::script('js/bootstrap.min.js')}}
-        {{HTML::script('js/app.js')}}
-        
-        <script type="text/javascript">
-            @yield('js')
-        </script>
     </head>
+    <header>
+        
+    </header>
     <body>
-        <header>
-            <h1>Bienvenidos a la web del proyecto</h1>
-        </header>
-        @include('menu')
-        <main>
-            @yield('contenido')
-        </main>
-        <footer>
-            &copy; 2017 iw.ua.es
-        </footer>
+        <div>
+            <div>
+            <header>
+                @include('menu/header')
+            </header>
+
+            <main>
+                @yield('page')
+            </main>
+            <footer class="inner-body">
+                &copy; 2017 DevCode
+            </footer>
+            </div>
+        </div>
     </body>
+
 </html>

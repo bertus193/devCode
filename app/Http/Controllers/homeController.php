@@ -10,12 +10,12 @@ use App\Curso;
 class homeController extends Controller
 {
     public function index() {
-        return View::make('home/principal');
+        return View::make('pages/principal');
     }
     
     public function cursos() {
         $cursos = Curso::all();
         
-        return View::make('cursos')->with('cursos', $cursos);
+        return View::make('pages/cursos')->with('cursos', $cursos);
     }
 }
