@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', 'homeController@index')->name('home');
+Route::get('/', 'HomeController@showHome')->name('home');
 
-Route::get('/cursos', 'homeController@cursos')->name('cursos');
+Route::get('/cursos', 'CursosController@showCursos')->name('cursos');
 
 Route::get('datatable', ['uses'=>'listaController@datatable']);
-Route::get('datatable/getUsers', ['as'=>'datatable.getUsers','uses'=>'listaController@getUsers']);
+Route::get('datatable/getUsers', ['as'=>'datatable.getUsers','uses'=>'ListaController@getUsers']);

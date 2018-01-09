@@ -9,13 +9,8 @@ use App\Curso;
 
 class homeController extends Controller
 {
-    public function index() {
-        return View::make('pages/principal');
-    }
-    
-    public function cursos() {
+    public function showHome() {
         $cursos = Curso::all();
-        
-        return View::make('pages/cursos')->with('cursos', $cursos);
+        return View::make('pages/principal')->with('cursos', $cursos);
     }
 }
