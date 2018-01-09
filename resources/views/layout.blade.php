@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>DevCode</title>
-        
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
         {{HTML::style('css/lib/bootstrap.css')}}
         {{HTML::style('css/devCode.css')}}
         {{HTML::style('css/menu/header.css')}}
@@ -11,9 +11,6 @@
         {{HTML::script('js/jquery-3.2.1.js')}}
         {{HTML::script('js/bootstrap.min.js')}}
     </head>
-    <header>
-        
-    </header>
     <body>
         <div>
             <div>

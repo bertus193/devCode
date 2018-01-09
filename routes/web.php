@@ -13,7 +13,10 @@
 
 Route::get('/', 'HomeController@showHome')->name('home');
 
-Route::get('/cursos', 'CursosController@showCursos')->name('cursos');
+Route::get('/cursos/', 'CursosController@showCursos')->name('cursos.all');
 
 Route::get('datatable', ['uses'=>'listaController@datatable']);
-Route::get('datatable/getUsers', ['as'=>'datatable.getUsers','uses'=>'ListaController@getUsers']);
+Route::get('datatables/getUsers', ['as'=>'datatable.getUsers','uses'=>'ListaController@getUsers']);
+
+Route::get( '/users/login', 'UserController@showLogin')->name('user.login.get');
+Route::post('/users/login', 'UserController@doLogin')->name('user.login.post');
