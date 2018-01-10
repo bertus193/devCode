@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use View;
 
-use App\Curso;
+use App\Models\Curso;
 
 class homeController extends Controller
 {

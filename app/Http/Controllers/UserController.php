@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use View;
 use Session;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -16,9 +17,16 @@ class UserController extends Controller
 
     public function doLogin(Request $request){
         if ($request->isMethod('post')){
-            return response()->json(['response' => 'This is post method']); 
-        }
 
-        return response()->json(['response' => 'This is get method']);
+            if (Auth::attempt($request->formData)) {
+                return response()->json(['response' => 'OK']); 
+            } else{
+                return response()->json(['error' => 'Login incorrecto']); 
+            }
+            
+            
+            
+        }
+        return response()->json(['error' => 'This is post method']);
     }
 }
