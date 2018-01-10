@@ -18,7 +18,11 @@ class UserController extends Controller
     public function doLogin(Request $request){
         if ($request->isMethod('post')){
 
-            if (Auth::attempt($request->formData)) {
+            $userData = array(
+                "email"       => $request->input('email'),
+                'password'    => $request->input('password')
+            );
+            if (Auth::attempt($userData)) {
                 return response()->json(['response' => 'OK']); 
             } else{
                 return response()->json(['error' => 'Login incorrecto']); 

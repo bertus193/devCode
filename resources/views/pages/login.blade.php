@@ -15,23 +15,28 @@ $(document).ready(function() {
 $('form').submit(function(event) {
     // get the form data
     // there are many ways to get this data using jQuery (you can use the class or id also)
-    var formData = {
-        'email'       : $('input[id=email]').val(),
-        'password'    : $('input[id=password]').val()
-    };
+    var userData = JSON.parse(JSON.stringify({'email': $('input[id=email]').val(), 'password': $('input[id=password]').val()}));
 
-    console.log("asad: "+formData['email'])
-    
     $.ajax({
         url: "{{ route('user.login.post') }}",
         type: 'POST',
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        data: {formData: formData},
+        data: userData,
         dataType: 'JSON',
         success: function (data) {
-            console.log(data);
+            if(data.response && data.response == "OK"){
+                console.log(data.response)
+            } else if(data.error){
+                document.getElementById("errorMsg").innerHTML = 
+                '<div class="alert alert-dismissible alert-danger">\
+                <button type="button" class="close" data-dismiss="alert">&times;</button>\
+                <strong>Error:</strong><br>' + data.error + '.\
+                </div>'
+            }
+            //var user = JSON.parse(data);
+            
         },
         error: function(data){
             console.log(data);
@@ -49,6 +54,7 @@ $('form').submit(function(event) {
     <div class="container">
         <form class="form-signin">
             <h2 class="form-signin-heading">Inciar sesión</h2>
+            <div id="errorMsg"></div>
             <input id="email" class="form-control" placeholder="Email" required="" autofocus="" ><!--type="email"-->   
             <input style="margin-top: 20px;" id="password" class="form-control" placeholder="Contraseña" required="" type="password">
             <button style="margin-top: 20px;" class="btn btn-lg btn-primary btn-block" type="submit">Inciar sesión</button>
