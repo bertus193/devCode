@@ -27,7 +27,7 @@ $('form').submit(function(event) {
         dataType: 'JSON',
         success: function (data) {
             if(data.response && data.response == "OK"){
-                console.log(data.response)
+                window.location="{{route('home')}}"
             } else if(data.error){
                 document.getElementById("errorMsg").innerHTML = 
                 '<div class="alert alert-dismissible alert-danger">\

@@ -33,4 +33,9 @@ class UserController extends Controller
         }
         return response()->json(['error' => 'This is post method']);
     }
+
+
+    public function doLogout(Request $request){
+        Auth::logout();
+    }
 }

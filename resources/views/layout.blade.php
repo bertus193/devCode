@@ -12,20 +12,15 @@
         {{HTML::script('js/bootstrap.min.js')}}
     </head>
     <body>
-        <div>
-            <div>
-            <header>
-                @include('menu/header')
-            </header>
-
-            <main>
-                @yield('page')
-            </main>
-            <footer class="inner-body">
-                &copy; 2017 DevCode
-            </footer>
-            </div>
-        </div>
+        <header>
+            @include('menu/header')
+        </header>
+        <main>
+            @yield('page')
+        </main>
+        <footer class="inner-body">
+            &copy; 2017 DevCode
+        </footer>
     </body>
 
 </html>

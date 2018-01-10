@@ -20,3 +20,4 @@ Route::get('datatables/getUsers', ['as'=>'datatable.getUsers','uses'=>'ListaCont
 
 Route::get( '/users/login', 'UserController@showLogin')->name('user.login.get');
 Route::post('/users/login', 'UserController@doLogin')->name('user.login.post');
+Route::post('/users/logout', 'UserController@doLogout')->name('user.logout.post');

@@ -1,7 +1,4 @@
 @extends('layout')
-
-
-
 @section('page')
 <div class="inner-body">
     <ul>
