@@ -15,6 +15,10 @@ Route::get('/', 'HomeController@showHome')->name('home');
 
 Route::get('/cursos/', 'CursosController@showCursos')->name('cursos.all');
 
+Route::get('/tutoriales/', 'TutorialsController@showTutorials')->name('tutorials.all');
+Route::get('/tv/', 'TvsController@showTv')->name('tvs.all');
+Route::get('/intereses/', 'InterestsController@showInterest')->name('interests.all');
+
 Route::get('datatable', ['uses'=>'listaController@datatable']);
 Route::get('datatables/getUsers', ['as'=>'datatable.getUsers','uses'=>'ListaController@getUsers']);
 

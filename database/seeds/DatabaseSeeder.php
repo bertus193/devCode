@@ -13,8 +13,12 @@ class DatabaseSeeder extends Seeder
     {
         // Generamos datos de prueba con su seeder
         //$this->call(UsersTableSeeder::class);
-                
-        $this->call(UsersTableSeeder::class);
+
+        //$this->call(UsersTableSeeder::class);
         $this->call(CursosTableSeeder::class);
+        $this->call(TutorialsTableSeeder::class);
+        $this->call(TvsTableSeeder::class);
+        $this->call(AuthorsTableSeeder::class);
+        $this->call(InterestsTableSeeder::class);
     }
 }
