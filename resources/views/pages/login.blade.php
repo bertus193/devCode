@@ -10,8 +10,13 @@
 <script>
 $(document).ready(function() {
     $('#btn-login').click(function(event) {
-        var userData = JSON.parse(JSON.stringify({'email': $('input[id=email]').val(), 'password': $('input[id=password]').val()}));
-
+        var userData = JSON.parse(JSON.stringify(
+            {
+                'email': $('input[id=email]').val(), 
+                'password': $('input[id=password]').val(),
+                'remember-me': $("input[id=remember-me]").is(":checked") ? "true" : "false"
+            }));
+        console.log(userData['remember-me'])
         $.ajax({
             url: "{{ route('user.login.post') }}",
             type: 'POST',
@@ -44,6 +49,7 @@ $(document).ready(function() {
             <div id="errorMsg"></div>
             <input id="email" class="form-control" placeholder="Email" required="" autofocus="" type="email">
             <input style="margin-top: 20px;" id="password" class="form-control" placeholder="Contraseña" required="" type="password">
+            <input style="margin-top: 20px;" id="remember-me" type="checkbox"> Permanecer conectado
             <button id="btn-login" style="margin-top: 20px;" class="btn btn-lg btn-primary btn-block" type="submit">Inciar sesión</button>
     </div>
 </div>

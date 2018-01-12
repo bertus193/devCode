@@ -62,7 +62,7 @@ class UserController extends Controller
                 "email"       => $request->input('email'),
                 'password'    => $request->input('password')
             );
-            if (Auth::attempt($userData)) {
+            if (Auth::attempt($userData, $request->input('remember-me'))) {
                 return response()->json(['response' => 'OK']); 
             } else{
                 return response()->json(['error' => 'Login incorrecto']); 
