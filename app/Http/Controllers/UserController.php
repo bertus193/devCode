@@ -7,11 +7,16 @@ use View;
 use Session;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class UserController extends Controller
 {
     public function showLogin() {
-        return View::make('pages/login');
+        if(!Auth::user()){
+            return View::make('pages/login');
+        }
+
+        return View::make('pages/profile');
     }
 
     public function showProfile() {
@@ -20,6 +25,34 @@ class UserController extends Controller
         }
         
         return View::make('pages/login');
+    }
+    
+    public function showRegister() {
+        if(!Auth::user()){
+            return View::make('pages/register');
+        }
+
+        return View::make('pages/profile');
+    }
+
+    public function doRegister(Request $request){
+        if ($request->isMethod('post')){
+            $email = $request->input('email');
+            if(User::where('email',$email)->count() == 0){
+                $user = new User();
+                $user->name = $request->input('name');
+                $user->email = $email;
+                $user->password = bcrypt($request->input('password'));
+                $user->save();
+                return response()->json(['response' => 'OK']); 
+            }
+            else{
+                return response()->json(['error' => 'Email no válido']);
+            }
+        }
+        else{
+            return response()->json(['error' => 'This is post method']);
+        }
     }
 
     public function doLogin(Request $request){

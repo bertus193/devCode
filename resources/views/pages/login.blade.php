@@ -9,7 +9,7 @@
 </style>
 <script>
 $(document).ready(function() {
-    $('form').submit(function(event) {
+    $('#btn-login').click(function(event) {
         var userData = JSON.parse(JSON.stringify({'email': $('input[id=email]').val(), 'password': $('input[id=password]').val()}));
 
         $.ajax({
@@ -39,14 +39,12 @@ $(document).ready(function() {
 </script>
 
 <div class="inner-body">
-    <div class="container">
-        <form class="form-signin">
+    <div class="container form-signin">
             <h2 class="form-signin-heading">Inciar sesión</h2>
             <div id="errorMsg"></div>
-            <input id="email" class="form-control" placeholder="Email" required="" autofocus="" ><!--type="email"-->   
+            <input id="email" class="form-control" placeholder="Email" required="" autofocus="" type="email">
             <input style="margin-top: 20px;" id="password" class="form-control" placeholder="Contraseña" required="" type="password">
-            <button style="margin-top: 20px;" class="btn btn-lg btn-primary btn-block" type="submit">Inciar sesión</button>
-        </form>
+            <button id="btn-login" style="margin-top: 20px;" class="btn btn-lg btn-primary btn-block" type="submit">Inciar sesión</button>
     </div>
 </div>
 

@@ -16,8 +16,8 @@ class Users_CursosTableSeeder extends Seeder
 
             $users_cursos = [
                 ['user_id' => 1, 'curso_id' => 1],
-                ['user_id' => 1, 'curso_id' => 1],
-                ['user_id' => 1, 'curso_id' => 1],
+                ['user_id' => 1, 'curso_id' => 2],
+                ['user_id' => 1, 'curso_id' => 3],
             ];
 
             DB::table('users_cursos')->insert($users_cursos);
