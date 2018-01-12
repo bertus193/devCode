@@ -8,8 +8,8 @@
         {{HTML::style('css/devCode.css')}}
         {{HTML::style('css/menu/header.css')}}
 
-        {{HTML::script('js/jquery-3.2.1.js')}}
-        {{HTML::script('js/bootstrap.min.js')}}
+        {{HTML::script('js/jquery.js')}}
+        {{HTML::script('js/bootstrap.js')}}
     </head>
     <body>
         <header>
