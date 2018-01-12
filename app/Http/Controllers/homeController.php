@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use View;
 
-use App\Models\Curso;
+use App\Models\Course;
 
 class homeController extends Controller
 {
     public function showHome() {
-        $cursos = Curso::all();
-        return View::make('pages/principal')->with('cursos', $cursos);
+        $courses = Course::all();
+        return View::make('pages/principal')->with('courses', $courses);
     }
 }

@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
         if (App::environment()!=='production') {
             DB::table('users')->delete();
             
-            factory(App\User::class, 20)->create();
+            factory(App\Models\User::class, 20)->create();
         }
     }
 }

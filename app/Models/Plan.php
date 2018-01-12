@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Curso extends Model
+class Plan extends Model
 {
     private $name;
-
-    private $descripcion;
+    private $benefits;
 }
