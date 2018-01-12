@@ -35,15 +35,26 @@ $(document).ready(function() {
         <p><b>Registrado el:</b> <?php print date("d-m-Y", strtotime($user->created_at)); ?></p>
         <p><button id="btn-logout" class="btn btn-danger">Logout</button></p>
 
-        @if ($user->cursos->count() > 0)
-        <ul>
-        @foreach($user->cursos as $curso)
-            <li>{{ $curso->name }}</li>
-        @endforeach
-        </ul>
-        @endif
+        
         
     </div>
-</div>
+
+    @if ($user->cursos->count() > 0)
+        <h2 align="center" style="margin-top: 50px;">Mis Cursos</h2>
+        <div class="row">
+            @foreach($user->cursos as $curso)
+            <div class="col-sm-4">
+            <div class="card" style="background-color: #e1e1e14d;">
+                <div class="card-block">
+                    <h5 class="card-title">{{$curso->name}}</h5>
+                    <p class="card-text">{{$curso->descripcion}}</p>
+                    <a href="#" class="btn btn-primary">Ir al curso</a>
+                </div>
+            </div>
+        </div>
+            @endforeach
+            </div>
+    @endif
+    
 
 @stop
