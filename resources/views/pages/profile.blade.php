@@ -39,15 +39,15 @@ $(document).ready(function() {
         
     </div>
 
-    @if ($user->cursos->count() > 0)
+    @if ($user->courses->count() > 0)
         <h2 align="center" style="margin-top: 50px;">Mis Cursos</h2>
         <div class="row">
-            @foreach($user->cursos as $curso)
+            @foreach($user->courses as $curso)
             <div class="col-sm-4">
             <div class="card" style="background-color: #e1e1e14d;">
                 <div class="card-block">
                     <h5 class="card-title">{{$curso->name}}</h5>
-                    <p class="card-text">{{$curso->descripcion}}</p>
+                    <p class="card-text">{{$curso->description}}</p>
                     <a href="#" class="btn btn-primary">Ir al curso</a>
                 </div>
             </div>

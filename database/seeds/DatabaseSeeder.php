@@ -15,14 +15,14 @@ class DatabaseSeeder extends Seeder
         //$this->call(UsersTableSeeder::class);
 
         $this->call(UsersTableSeeder::class);
-        $this->call(CursosTableSeeder::class);
+        $this->call(CoursesTableSeeder::class);
         $this->call(TutorialsTableSeeder::class);
         $this->call(TvsTableSeeder::class);
         $this->call(AuthorsTableSeeder::class);
         $this->call(InterestsTableSeeder::class);
         $this->call(PlansTableSeeder::class);
 
-        $this->call(Users_CursosTableSeeder::class);
+        $this->call(Users_CoursesTableSeeder::class);
         
     }
 }

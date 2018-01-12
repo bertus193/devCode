@@ -17,10 +17,10 @@
     
     <div class="col-md-4">
         <div class="card bg-light mb-4">
-            <div class="card-header">{{$cursos[$i]->name}}</div>
+            <div class="card-header">{{$courses[$i]->name}}</div>
                 <div class="card-body">
                     <!--<h4 class="card-title">Light card title</h4>-->
-                    <p class="card-text">{{$cursos[$i]->descripcion}}</p>
+                    <p class="card-text">{{$courses[$i]->description}}</p>
                 </div>
             </div>
         </div>

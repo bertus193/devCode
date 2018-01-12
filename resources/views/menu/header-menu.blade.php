@@ -1,6 +1,6 @@
 <ul class="navbar-nav mr-auto">
     <li class="nav-item active">
-        <a class="nav-link" href="{{route('curso.all')}}">Cursos</a>
+        <a class="nav-link" href="{{route('course.all')}}">Cursos</a>
     </li>
 </ul>
 

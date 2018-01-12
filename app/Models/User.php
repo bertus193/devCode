@@ -28,8 +28,8 @@ class User extends Authenticatable
     ];
 
 
-    public function cursos()
+    public function courses()
     {
-        return $this->belongsToMany('App\Models\Curso', 'users_cursos');
+        return $this->belongsToMany('App\Models\Course', 'users_courses');
     }
 }

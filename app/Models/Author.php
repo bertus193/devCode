@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Interes extends Model
+class Author extends Model
 {
-    private $lenguaje;
+    private $name;
+    private $photo;
 }

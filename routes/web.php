@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@showHome')->name('home');
 
-Route::get('/cursos/', 'CursosController@showCursos')->name('curso.all');
+Route::get('/cursos/', 'CoursesController@showCourses')->name('course.all');
 
 Route::get('/tutoriales/', 'TutorialsController@showTutorials')->name('tutorials.all');
 Route::get('/tv/', 'TvsController@showTv')->name('tvs.all');

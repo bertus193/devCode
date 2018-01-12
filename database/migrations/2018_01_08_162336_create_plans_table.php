@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTipoPagoTable extends Migration
+class CreatePlansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateTipoPagoTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipoPago', function (Blueprint $table) {
+        Schema::create('plans', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tipo');
-            $table->integer('meses');
-            $table->float('precio');
-            $table->integer('descuento');
+            $table->string('name');
+            $table->string('benefits');
         });
     }
 
@@ -29,6 +27,6 @@ class CreateTipoPagoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipoPago');
+        Schema::dropIfExists('planes');
     }
 }

@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Curso extends Model
+class Course extends Model
 {
     private $name;
 
-    private $descripcion;
+    private $description;
 
     public function users()
     {
-        return $this->belongsToMany('App\Models\User', 'users_cursos');
+        return $this->belongsToMany('App\Models\User', 'users_courses');
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tutorial extends Model
 {
     private $name;
-    private $descripcion;
-    private $autor;
-    private $fecha;
+    private $description;
+    private $author;
+    private $date;
 }

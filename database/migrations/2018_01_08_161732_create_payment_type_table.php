@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAuthorsTable extends Migration
+class CreatePaymentTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateAuthorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('autores', function (Blueprint $table) {
+        Schema::create('payment_type', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->string('foto');
+            $table->string('type');
+            $table->integer('months');
+            $table->float('price');
+            $table->integer('discount');
         });
     }
 
@@ -27,6 +29,6 @@ class CreateAuthorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('autores');
+        Schema::dropIfExists('tipoPago');
     }
 }
