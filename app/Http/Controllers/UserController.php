@@ -11,8 +11,11 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function showLogin() {
-        $data = Session::get('email');
-        return View::make('pages/login')->with('cursos', $data);
+        return View::make('pages/login');
+    }
+
+    public function showProfile() {
+        return View::make('pages/profile');
     }
 
     public function doLogin(Request $request){
