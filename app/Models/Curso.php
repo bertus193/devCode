@@ -9,4 +9,9 @@ class Curso extends Model
     private $name;
 
     private $descripcion;
+
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
 }

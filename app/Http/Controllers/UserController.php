@@ -15,7 +15,11 @@ class UserController extends Controller
     }
 
     public function showProfile() {
-        return View::make('pages/profile');
+        if(Auth::user()){
+            return View::make('pages/profile');
+        }
+        
+        return View::make('pages/login');
     }
 
     public function doLogin(Request $request){
