@@ -13,12 +13,12 @@
 
 Route::get('/', 'HomeController@showHome')->name('home');
 
-Route::get('/cursos/', 'CoursesController@showCourses')->name('course.all');
-Route::get('/cursos/{id}', 'CoursesController@showCourse')->name('course');
+Route::get('/cursos/', 'CourseController@showCourses')->name('course.all');
+Route::get('/cursos/{id}', 'CourseController@showCourse')->name('course');
 
-Route::get('/tutoriales/', 'TutorialsController@showTutorials')->name('tutorials.all');
-Route::get('/tv/', 'TvsController@showTv')->name('tvs.all');
-Route::get('/intereses/', 'InterestsController@showInterest')->name('interests.all');
+Route::get('/tutoriales/', 'TutorialController@showTutorials')->name('tutorial.all');
+Route::get('/tv/', 'TvController@showTv')->name('tv.all');
+Route::get('/intereses/', 'InterestController@showInterest')->name('interest.all');
 
 Route::get( '/users/login', 'UserController@showLogin')->name('user.login.get');
 Route::post('/users/login', 'UserController@doLogin')->name('user.login.post');
@@ -27,7 +27,8 @@ Route::post('/users/register', 'UserController@doRegister')->name('user.register
 
 Route::post('/users/logout', 'UserController@doLogout')->name('user.logout.post');
 Route::get( '/users/profile', 'UserController@showProfile')->name('user.profile');
-Route::post('/users/cursos/{id}', 'UserController@leaveCourse')->name('user.course.leave.post');
+Route::post('/users/cursos/{id}/leave', 'UserController@leaveCourse')->name('user.course.leave.post');
+Route::post('/users/cursos/{id}/join', 'UserController@joinCourse')->name('user.course.join.post');
 
-Route::get('datatables/getCourses', ['as'=>'datatable.getCourses','uses'=>'CoursesController@getCourses']);
+Route::get('datatables/getCourses', ['as'=>'datatable.getCourses','uses'=>'CourseController@getCourses']);
 

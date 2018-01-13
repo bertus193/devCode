@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use View;
 use App\Models\Tutorial;
 
-class TutorialsController extends Controller
+class TutorialController extends Controller
 {
     public function showTutorials() {
         $tutorials = Tutorial::all();

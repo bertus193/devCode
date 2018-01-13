@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use View;
 use App\Models\Tv;
 
-class TvsController extends Controller
+class TvController extends Controller
 {
     public function showTv() {
         $tvs = Tv::all();

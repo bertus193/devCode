@@ -19,7 +19,25 @@ $(document).ready(function() {
                 },
                 success: function (data) {
                     console.log(data)
-                    window.location="{{route('user.profile')}}";
+                    window.location="{{ route('course',['id'=>$course->id]) }}";
+                }
+            });
+        }
+        // stop the form from submitting the normal way and refreshing the page
+        event.preventDefault();
+    });
+
+    $('#btn-join-course').click(function(event) {
+        if (window.confirm("¿Estás seguro?")) {
+            $.ajax({
+                url: "{{ route('user.course.join.post',['id'=>$course->id]) }}",
+                type: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (data) {
+                    console.log(data)
+                    window.location="{{ route('course',['id'=>$course->id]) }}";
                 }
             });
         }
@@ -56,7 +74,7 @@ $(document).ready(function() {
             </p>
             @else
             <form action="{{route('user.register.get')}}">
-                <button class="btn btn-success" type="submit">¡Quiero inscribirme!</button>
+                <button id="btn-join-course" class="btn btn-success" type="submit">¡Quiero inscribirme!</button>
             </form>
             @endif
         @else

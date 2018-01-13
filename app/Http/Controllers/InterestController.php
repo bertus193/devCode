@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use View;
 use App\Models\Interest;
 
-class InterestsController extends Controller
+class InterestController extends Controller
 {
     public function showInterest() {
         $interests = Interest::all();

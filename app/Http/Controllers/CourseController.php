@@ -9,7 +9,7 @@ use App\Models\Course;
 
 use Datatables;
 
-class CoursesController extends Controller
+class CourseController extends Controller
 {
     public function showCourses() {
         $courses = Course::all();

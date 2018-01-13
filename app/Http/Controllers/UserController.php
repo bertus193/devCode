@@ -82,6 +82,11 @@ class UserController extends Controller
 
     public function leaveCourse(Request $request, $id){
         $this->user->courses()->detach($id);
-        return response()->json(['response' => $this->user->courses]); 
+        return response()->json(['response' => 'OK']); 
+    }
+
+    public function joinCourse(Request $request, $id){
+        $this->user->courses()->attach($id);
+        return response()->json(['response' => 'OK']); 
     }
 }
