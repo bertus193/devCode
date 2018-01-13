@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>DevCode</title>
         <meta name="csrf-token" content="{{ csrf_token() }}" />
+        <link rel="icon" href="{{ asset('/images/favicon.ico') }}" type="image/png">
         {{HTML::style('css/lib/bootstrap-min.css')}}
         {{HTML::style('css/devCode.css')}}
         {{HTML::style('css/menu/header.css')}}
