@@ -19,8 +19,10 @@ class CreateTvsTable extends Migration
             $table->text('description');
             $table->string('array_tags');
             $table->string('url');
-            $table->string('author');
+            $table->integer('author_id')->unsigned();;
             $table->string('image');
+
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');;
         });
     }
 

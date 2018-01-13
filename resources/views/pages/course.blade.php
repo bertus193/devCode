@@ -28,19 +28,17 @@ $(document).ready(function() {
     });
 
     $('#btn-join-course').click(function(event) {
-        if (window.confirm("¿Estás seguro?")) {
-            $.ajax({
-                url: "{{ route('user.course.join.post',['id'=>$course->id]) }}",
-                type: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function (data) {
-                    console.log(data)
-                    window.location="{{ route('course',['id'=>$course->id]) }}";
-                }
-            });
-        }
+        $.ajax({
+            url: "{{ route('user.course.join.post',['id'=>$course->id]) }}",
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (data) {
+                console.log(data)
+                window.location="{{ route('course',['id'=>$course->id]) }}";
+            }
+        });
         // stop the form from submitting the normal way and refreshing the page
         event.preventDefault();
     });

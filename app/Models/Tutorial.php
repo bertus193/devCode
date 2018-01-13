@@ -8,7 +8,10 @@ class Tutorial extends Model
 {
     private $name;
     private $description;
-    private $author;
     private $date;
     private $image;
+
+    public function author(){
+        return $this->belongsTo('App\Models\Author');
+    }
 }

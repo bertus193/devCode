@@ -16,15 +16,12 @@
               <p class="card-text" align=center>{{$t->description}}</p>
             </div>
             <div class="card-body">
-              <p class="card-text">{{$t->author}}</p>
+            {{ HTML::image($t->author->photo, $t->author->name, array( 'width' => '45px', 'height' => '45px' )) }} {{$t->author->name}}
             </div>
         </div>
     </div>
     @endforeach
-<<<<<<< HEAD
-=======
 </div>
->>>>>>> bertus
 </div>
 
 @stop
