@@ -11,8 +11,9 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    
     public function showLogin() {
-        if(!Auth::user()){
+        if($this->user == null){
             return View::make('pages/login');
         }
 
@@ -20,7 +21,7 @@ class UserController extends Controller
     }
 
     public function showProfile() {
-        if(Auth::user()){
+        if($this->user != null){
             return View::make('pages/profile');
         }
         
@@ -28,7 +29,7 @@ class UserController extends Controller
     }
     
     public function showRegister() {
-        if(!Auth::user()){
+        if($this->user == null){
             return View::make('pages/register');
         }
 
@@ -77,5 +78,10 @@ class UserController extends Controller
 
     public function doLogout(Request $request){
         Auth::logout();
+    }
+
+    public function leaveCourse(Request $request, $id){
+        $this->user->courses()->detach($id);
+        return response()->json(['response' => $this->user->courses]); 
     }
 }

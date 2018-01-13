@@ -14,7 +14,6 @@
 Route::get('/', 'HomeController@showHome')->name('home');
 
 Route::get('/cursos/', 'CoursesController@showCourses')->name('course.all');
-
 Route::get('/cursos/{id}', 'CoursesController@showCourse')->name('course');
 
 Route::get('/tutoriales/', 'TutorialsController@showTutorials')->name('tutorials.all');
@@ -28,6 +27,7 @@ Route::post('/users/register', 'UserController@doRegister')->name('user.register
 
 Route::post('/users/logout', 'UserController@doLogout')->name('user.logout.post');
 Route::get( '/users/profile', 'UserController@showProfile')->name('user.profile');
+Route::post('/users/cursos/{id}', 'UserController@leaveCourse')->name('user.course.leave.post');
 
 Route::get('datatables/getCourses', ['as'=>'datatable.getCourses','uses'=>'CoursesController@getCourses']);
 

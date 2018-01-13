@@ -16,7 +16,6 @@ $(document).ready(function() {
                 'password': $('input[id=password]').val(),
                 'remember-me': $("input[id=remember-me]").is(":checked") ? "true" : "false"
             }));
-        console.log(userData['remember-me'])
         $.ajax({
             url: "{{ route('user.login.post') }}",
             type: 'POST',

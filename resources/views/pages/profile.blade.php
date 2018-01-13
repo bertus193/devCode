@@ -33,7 +33,7 @@ $(document).ready(function() {
         <h2>{{$user->name}}</h2>
         <p><b>Email:</b> {{$user->email}}</p>
         <p><b>Registrado el:</b> <?php print date("d-m-Y", strtotime($user->created_at)); ?></p>
-        <p><button id="btn-logout" class="btn btn-danger">Logout</button></p>
+        <p><button id="btn-logout" class="btn btn-danger">Cerrar sesión</button></p>
 
         
         
@@ -43,12 +43,12 @@ $(document).ready(function() {
         <h2 align="center" style="margin-top: 50px;">Mis Cursos</h2>
         <div class="row">
             @foreach($user->courses as $curso)
-            <div class="col-sm-4">
+            <div class="col-sm-4" style="margin-bottom: 20px;">
             <div class="card" style="background-color: #e1e1e14d;">
                 <div class="card-block">
                     <h5 class="card-title">{{$curso->name}}</h5>
                     <p class="card-text">{{$curso->description}}</p>
-                    <a href="#" class="btn btn-primary">Ir al curso</a>
+                    <a href='{{ route("course",["id"=>$curso->id]) }}' class="btn btn-primary">Ir al curso</a>
                 </div>
             </div>
         </div>
