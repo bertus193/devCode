@@ -10,4 +10,5 @@ class Tutorial extends Model
     private $description;
     private $author;
     private $date;
+    private $image;
 }

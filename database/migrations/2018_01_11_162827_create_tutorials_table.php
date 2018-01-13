@@ -17,8 +17,9 @@ class CreateTutorialsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description');
-            $table->string('autor');
-            $table->string('fecha');
+            $table->string('author');
+            $table->string('date');
+            $table->string('image');
         });
     }
 
