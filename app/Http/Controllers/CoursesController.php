@@ -21,7 +21,7 @@ class CoursesController extends Controller
     {
     	$courses = Course::all();
         return Datatables::of($courses)
-        ->editColumn('name', '<a href="{{ route("course",["id"=>$id]) }}">{{$name}}</a>')->rawColumns(['name'])
+        ->editColumn('name', '<a name="{{$name}}" href="{{ route("course",["id"=>$id]) }}">{{$name}}</a>')->rawColumns(['name'])
         ->make(true);
     }
 
