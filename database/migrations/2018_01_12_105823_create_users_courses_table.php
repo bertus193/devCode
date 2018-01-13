@@ -16,7 +16,7 @@ class CreateUsersCoursesTable extends Migration
         Schema::create('users_courses', function(Blueprint $table)
         {
             $table->increments('id');
-            
+
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 

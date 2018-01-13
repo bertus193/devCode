@@ -11,4 +11,5 @@ class Tv extends Model
     private $array_tags;
     private $url;
     private $author;
+    private $image;
 }
