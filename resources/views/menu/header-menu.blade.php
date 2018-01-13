@@ -2,6 +2,9 @@
     <li class="nav-item active">
         <a class="nav-link" href="{{route('course.all')}}">Cursos</a>
     </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{route('tutorials.all')}}">Comunidad</a>
+    </li>
 </ul>
 
 <ul class="navbar-nav navbar-right">

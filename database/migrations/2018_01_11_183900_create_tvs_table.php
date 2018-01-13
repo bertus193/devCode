@@ -20,6 +20,7 @@ class CreateTvsTable extends Migration
             $table->string('array_tags');
             $table->string('url');
             $table->string('author');
+            $table->string('image');
         });
     }
 
