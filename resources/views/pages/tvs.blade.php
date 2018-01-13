@@ -1,12 +1,13 @@
 @extends('layout')
 @section('page')
-<h1 align=center>DevCodeTv</h1>
-<div class="row inner-body">
+<div class="inner-body">
+<h3 align=center>DevCode TV</h1>
+<div class="row" style="margin-top: 40px;">
     @foreach ($tvs as $tv)
     <div class="col-md-3">
         <div class="card bg-light mb-3">
             <div class="card-header">
-              <img src="{{$tv->image}}" style="width: 100%; height: 100%;">
+            {{ HTML::image($tv->image, $tv->name, array( 'width' => '100%', 'height' => '100%' )) }}
             </div>
             <div class="card-body">
               <!--<h4 class="card-title">Light card title</h4>-->
