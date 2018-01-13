@@ -13,3 +13,9 @@ body {
 .bg-light{
     color:black !important;
 }
+
+.inner-box{
+    padding: 50px;
+    background-color: #e9ecef;
+    border-radius: 0.3rem;
+}

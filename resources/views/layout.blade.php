@@ -4,12 +4,13 @@
         <meta charset="UTF-8">
         <title>DevCode</title>
         <meta name="csrf-token" content="{{ csrf_token() }}" />
-        {{HTML::style('css/lib/bootstrap.css')}}
+        {{HTML::style('css/lib/bootstrap-min.css')}}
         {{HTML::style('css/devCode.css')}}
         {{HTML::style('css/menu/header.css')}}
-
+        
         {{HTML::script('js/jquery.js')}}
-        {{HTML::script('js/bootstrap.js')}}
+        {{HTML::script('js/tether-min.js')}}
+        {{HTML::script('js/bootstrap-min.js')}}
     </head>
     <body>
         <header>

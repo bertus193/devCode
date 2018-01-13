@@ -15,12 +15,11 @@ Route::get('/', 'HomeController@showHome')->name('home');
 
 Route::get('/cursos/', 'CoursesController@showCourses')->name('course.all');
 
+Route::get('/cursos/{id}', 'CoursesController@showCourse')->name('course');
+
 Route::get('/tutoriales/', 'TutorialsController@showTutorials')->name('tutorials.all');
 Route::get('/tv/', 'TvsController@showTv')->name('tvs.all');
 Route::get('/intereses/', 'InterestsController@showInterest')->name('interests.all');
-
-Route::get('datatable', ['uses'=>'listaController@datatable']);
-Route::get('datatables/getUsers', ['as'=>'datatable.getUsers','uses'=>'ListaController@getUsers']);
 
 Route::get( '/users/login', 'UserController@showLogin')->name('user.login.get');
 Route::post('/users/login', 'UserController@doLogin')->name('user.login.post');
@@ -29,4 +28,6 @@ Route::post('/users/register', 'UserController@doRegister')->name('user.register
 
 Route::post('/users/logout', 'UserController@doLogout')->name('user.logout.post');
 Route::get( '/users/profile', 'UserController@showProfile')->name('user.profile');
+
+Route::get('datatables/getCourses', ['as'=>'datatable.getCourses','uses'=>'CoursesController@getCourses']);
 
