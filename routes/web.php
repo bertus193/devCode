@@ -18,6 +18,7 @@ Route::get('/cursos/{id}', 'CourseController@showCourse')->name('course');
 
 Route::get('/tutoriales/', 'TutorialController@showTutorials')->name('tutorial.all');
 Route::get('/tv/', 'TvController@showTv')->name('tv.all');
+Route::get('/planes/', 'PlansController@showPlan')->name('plans.all');
 Route::get('/intereses/', 'InterestController@showInterest')->name('interest.all');
 
 Route::get( '/users/login', 'UserController@showLogin')->name('user.login.get');
@@ -31,4 +32,3 @@ Route::post('/users/cursos/{id}/leave', 'UserController@leaveCourse')->name('use
 Route::post('/users/cursos/{id}/join', 'UserController@joinCourse')->name('user.course.join.post');
 
 Route::get('datatables/getCourses', ['as'=>'datatable.getCourses','uses'=>'CourseController@getCourses']);
-

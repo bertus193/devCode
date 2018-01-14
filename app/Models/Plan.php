@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plan extends Model
 {
-    private $name;
+    private $tipo;
+    private $precio;
+    private $meses;
     private $benefits;
 }
