@@ -13,4 +13,9 @@ class TutorialController extends Controller
 
         return View::make('pages/tutorials')->with('tutorials', $tutorials);
     }
+
+    public function showTutorial($id) {
+        $tutorial = Tutorial::find($id);
+        return View::make('pages/tutorial')->with('tutorial', $tutorial);
+    }
 }

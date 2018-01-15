@@ -8,12 +8,20 @@
         <div class="home-header-content">
             <h1 class="home-header-content__title">Aprende nuevas tecnologías web y móvil</h1>
             <p class="home-header-content__slogan">A través de cursos prácticos, concisos y actualizados, dictados por profesionales con experiencia.</p>
-            <button class="btn btn-success" type="submit">Empieza ahora</button>
+            @if($signed_in)
+            <form action="{{route('course.all')}}">
+                <button class="btn btn-success" type="submit">¡Buscar cursos!</button>
+            </form>
+            @else
+            <form action="{{route('user.register.get')}}">
+                <button class="btn btn-success" type="submit">¡Empieza ahora!</button>
+            </form>
+            @endif
         </div>
     </div>
 </div>
 <div class="row inner-body">
-    @for ($i = 0; $i < 3; $i++)
+    @for ($i = 0; $i < count($courses) && $i < 3; $i++)
     
     <div class="col-md-4">
         <div class="card bg-light mb-4">

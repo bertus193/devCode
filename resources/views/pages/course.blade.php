@@ -51,29 +51,36 @@ $(document).ready(function() {
             <p style="margin-top: 20px;">{{$course->description}}</p>
             
             <?php
-                $found = false;
-                foreach($user->courses as $course_aux){
-                    if($course_aux->id == $course->id){
-                        $found = true;
+                $status = 1;
+                if(isset($user)){
+                    foreach($user->courses as $course_aux){
+                        if($course_aux->id == $course->id){
+                            $status = 2;
+                        }
                     }
+                } else{
+                    $status = 3;
                 }
+                
             ?>
 
             <p style="height: 200px;">
             </p>
 
 
-            @if($found)
+            @if($status == 2)
             <form style="text-align: center;" action="#">
                 <button class="btn btn-primary" type="submit">Hacer examen</button>
             </form><br>
             <p style="text-align: right;">
             <button id="btn-leave-course" class="btn btn-danger courseOut" type="submit">Salirse del curso</button>
             </p>
-            @else
+            @elseif($status == 3)
             <form action="{{route('user.register.get')}}">
-                <button id="btn-join-course" class="btn btn-success" type="submit">¡Quiero inscribirme!</button>
+                <button class="btn btn-success" type="submit">¡Quiero inscribirme!</button>
             </form>
+            @else
+                <button id="btn-join-course" class="btn btn-success" type="submit">¡Quiero inscribirme!</button>
             @endif
         @else
             El curso indicado no existe.
