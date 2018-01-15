@@ -6,6 +6,42 @@
     -webkit-transform: scale(0.675, 0.675);
     transform: scale(0.675, 0.675);
 }
+.course__agenda {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    -o-box-lines: multiple;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -o-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.course__agenda li {
+    width: 30%;
+    height: 100%;
+    list-style: none;
+    text-align: center;
+    padding: 1rem;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -o-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
 </style>
 <script>
 $(document).ready(function() {
@@ -63,12 +99,28 @@ $(document).ready(function() {
                 }
                 
             ?>
+            
+            <center style="margin: 45px 0 45px 0;">
+            @if(count($course->topics) == 0)
+                <h5 style="margin: 80px;">Parece que este curso no tiene temas...</h5>
+            @else          
+                <h3>Temas:</h3>
 
-            <p style="height: 200px;">
-            </p>
+                <ul class="course__agenda">
+                @for($i = 1; $i <= count($course->topics); $i++)
+                    <li class="row middle">
+                            <a>
+                            {{$i}}.- {{$course->topics[$i-1]->name}}
+                            </a>
+                    </li>
+                @endfor  
+                </ul>
+            @endif
+            </center>
 
 
             @if($status == 2)
+
             <form style="text-align: center;" action="#">
                 <button class="btn btn-primary" type="submit">Hacer examen</button>
             </form><br>
