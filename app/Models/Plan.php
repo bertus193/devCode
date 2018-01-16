@@ -10,4 +10,9 @@ class Plan extends Model
     private $precio;
     private $meses;
     private $benefits;
+
+    public function users()
+    {
+        return $this->hasMany('App\Models\User');
+    }
 }

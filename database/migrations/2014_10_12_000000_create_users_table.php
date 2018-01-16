@@ -18,7 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('name', 32);
             $table->string('email', 120)->unique();
             $table->string('password',64);
+            //$table->integer('plan_id')->unsigned();;
             $table->string('remember_token', 100)->nullable();
+
+            //$table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
             $table->timestamps();
         });
     }

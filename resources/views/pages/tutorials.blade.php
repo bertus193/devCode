@@ -16,7 +16,7 @@
               <p class="card-text" align=center>{{$t->description}}</p>
             </div>
             <div class="card-body">
-            {{ HTML::image($t->author->photo, $t->author->name, array( 'width' => '45px', 'height' => '45px' )) }} {{$t->author->name}}
+            {{ HTML::image($t->author->photo, $t->author->name, array( 'width' => '25px', 'height' => '25px' )) }} {{$t->author->name}}
             </div>
         </div>
     </div>

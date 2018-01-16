@@ -17,8 +17,12 @@ Route::get('/cursos/', 'CourseController@showCourses')->name('course.all');
 Route::get('/cursos/{id}', 'CourseController@showCourse')->name('course');
 
 Route::get('/tutoriales/', 'TutorialController@showTutorials')->name('tutorial.all');
-Route::get('/tv/', 'TvController@showTv')->name('tv.all');
-Route::get('/planes/', 'PlansController@showPlan')->name('plans.all');
+Route::get('/tutoriales/{id}', 'TutorialController@showTutorial')->name('tutorial');
+
+Route::get('/tv/', 'TvController@showTvs')->name('tv.all');
+Route::get('/tv/{id}', 'TvController@showTv')->name('tv');
+
+Route::get('/planes/', 'PlansController@showPlan')->name('plan.all');
 Route::get('/intereses/', 'InterestController@showInterest')->name('interest.all');
 
 Route::get( '/users/login', 'UserController@showLogin')->name('user.login.get');

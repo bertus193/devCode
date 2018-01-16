@@ -3,7 +3,13 @@
         <a class="nav-link" href="{{route('course.all')}}">Cursos</a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link" href="{{route('tutorial.all')}}">Comunidad</a>
+        <a class="nav-link" href="{{route('tutorial.all')}}">Tutoriales</a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{route('tv.all')}}">Tv</a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{route('plan.all')}}">Planes</a>
     </li>
 </ul>
 

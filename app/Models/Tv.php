@@ -12,4 +12,8 @@ class Tv extends Model
     private $url;
     private $author;
     private $image;
+
+    public function author(){
+        return $this->belongsTo('App\Models\Author');
+    }
 }
