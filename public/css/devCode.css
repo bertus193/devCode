@@ -19,3 +19,25 @@ body {
     background-color: #e9ecef;
     border-radius: 0.3rem;
 }
+
+.dataTables_length{
+    display: inline-block;
+}
+.dataTables_filter{
+    display: inline-block;float: right;
+}
+
+.dataTables_filter > label > input{
+    margin-left: 15px;
+}
+
+#datatable{
+    width:100%!important;
+}
+#datatable_info, #datatable_paginate{
+    text-align: center;
+}
+#datatable_paginate *{
+    margin: 3px;
+    cursor: pointer;
+}

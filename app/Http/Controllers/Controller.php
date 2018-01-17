@@ -15,7 +15,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public $user = null;
-    private $signed_in = false;
+    public $signed_in = false;
 
     public function __construct()
     {

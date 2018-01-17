@@ -9,9 +9,12 @@
         {{HTML::style('css/devCode.css')}}
         {{HTML::style('css/menu/header.css')}}
         
+        {{HTML::script('js/font-awesome.min.js')}}
         {{HTML::script('js/jquery.js')}}
         {{HTML::script('js/tether-min.js')}}
         {{HTML::script('js/bootstrap-min.js')}}
+        
+        
     </head>
     <body>
         <header>

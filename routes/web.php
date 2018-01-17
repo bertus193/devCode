@@ -11,13 +11,15 @@
 |
 */
 
-Route::get('/', 'HomeController@showHome')->name('home');
+Route::get('/', 'WebController@showHome')->name('home');
+Route::get('/admin', 'WebController@showAdmin')->name('admin');
 
 Route::get('/cursos/', 'CourseController@showCourses')->name('course.all');
 Route::get('/cursos/{id}', 'CourseController@showCourse')->name('course');
 
 Route::get('/tutoriales/', 'TutorialController@showTutorials')->name('tutorial.all');
 Route::get('/tutoriales/{id}', 'TutorialController@showTutorial')->name('tutorial');
+Route::post('/tutoriales/delete', 'TutorialController@deleteTutorial')->name('tutorial.delete');
 
 Route::get('/tv/', 'TvController@showTvs')->name('tv.all');
 Route::get('/tv/{id}', 'TvController@showTv')->name('tv');
@@ -35,4 +37,4 @@ Route::post('/users/cursos/{id}/leave', 'UserController@leaveCourse')->name('use
 Route::post('/users/cursos/{id}/join', 'UserController@joinCourse')->name('user.course.join.post');
 
 Route::get('datatables/getCourses', ['as'=>'datatable.getCourses','uses'=>'CourseController@getCourses']);
-
+Route::get('datatables/getTutorials', ['as'=>'datatable.getTutorials','uses'=>'TutorialController@getTutorials']);

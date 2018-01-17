@@ -8,6 +8,11 @@
     <li class="nav-item active">
         <a class="nav-link" href="{{route('tv.all')}}">TV</a>
     </li>
+    @if($signed_in)
+        <li class="nav-item active">
+        <a class="nav-link" href="{{route('admin')}}">Admin</a>
+    </li>  
+    @endif
 </ul>
 
 <ul class="navbar-nav navbar-right">
