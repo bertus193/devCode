@@ -14,8 +14,13 @@ class UsersTableSeeder extends Seeder
     {
         if (App::environment()!=='production') {
             DB::table('users')->delete();
+            $user = [
+                ['id' => 1, 'name' => 'Usuario Prueba', 'email' => 'user@example.org', 'password' => bcrypt('secret')],
+                ['id' => 2, 'name' => 'Usuario Admin Prueba', 'email' => 'admin@example.org', 'password' => bcrypt('secret')]
+            ];
+            DB::table('users')->insert($user);
             
-            factory(App\Models\User::class, 20)->create();
+            factory(App\Models\User::class, 18)->create();
         }
     }
 }

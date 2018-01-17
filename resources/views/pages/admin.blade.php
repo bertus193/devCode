@@ -2,6 +2,13 @@
 @section('page')
 
 {{HTML::script('js/jquery.dataTables.min.js')}}
+<style>
+#notificationMsg{
+    width: 320px;
+    position: absolute;
+    left: 37.5%;
+}
+</style>
 <script type="text/javascript">
 var table;
 function btn_tutorial_remove(id){
@@ -16,13 +23,10 @@ function btn_tutorial_remove(id){
             success: function (data) {
                 console.log(data.response);
                 if(data.response && data.response == "OK"){
+                    publicSuccessMsg("Tutorial eliminado correctamente")
                     table.row('.selected').remove().draw( false );
                 } else if(data.error){
-                    document.getElementById("errorMsg").innerHTML = 
-                    '<div class="alert alert-dismissible alert-danger">\
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>\
-                    <strong>Error:</strong><br>' + data.error + '.\
-                    </div>'
+                    publicErrorMsg(data.error);
                 }    
             }
         });
@@ -84,9 +88,9 @@ function loadDataTable(){
     <div class="inner-box">
         <center>
             <h4>Panel de administración</h4>
-            <div id="errorMsg" style="width: 320px;"></div>
+            <div id="notificationMsg"></div>
         </center>
-        <button onclick="loadTutorialAdmin()" class="btn btn-success" type="submit">Administrar tutoriales</button>
+        <button onclick="loadTutorialAdmin()" class="btn btn-success" type="submit" style="margin-top: 70px;">Administrar tutoriales</button>
         <div id="tutos_admin_content"></div>    
     </div>
 </div>

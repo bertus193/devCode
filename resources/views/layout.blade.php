@@ -13,7 +13,7 @@
         {{HTML::script('js/jquery.js')}}
         {{HTML::script('js/tether-min.js')}}
         {{HTML::script('js/bootstrap-min.js')}}
-        
+        {{HTML::script('js/devCode.js')}}
         
     </head>
     <body>

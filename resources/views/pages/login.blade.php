@@ -28,11 +28,7 @@ $(document).ready(function() {
                 if(data.response && data.response == "OK"){
                     window.location="{{route('home')}}"
                 } else if(data.error){
-                    document.getElementById("errorMsg").innerHTML = 
-                    '<div class="alert alert-dismissible alert-danger">\
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>\
-                    <strong>Error:</strong><br>' + data.error + '.\
-                    </div>'
+                    publicErrorMsg(data.error)
                 }    
             }
         });
@@ -45,7 +41,7 @@ $(document).ready(function() {
 <div class="inner-body">
     <div class="container form-signin">
             <h2 class="form-signin-heading">Inciar sesión</h2>
-            <div id="errorMsg"></div>
+            <div id="notificationMsg" style="height: 65px;"></div>
             <input id="email" class="form-control" placeholder="Email" required="" autofocus="" type="email">
             <input style="margin-top: 20px;" id="password" class="form-control" placeholder="Contraseña" required="" type="password">
             <input style="margin-top: 20px;" id="remember-me" type="checkbox"> Permanecer conectado
