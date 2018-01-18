@@ -21,7 +21,7 @@ Route::get('/tutoriales/', 'TutorialController@showTutorials')->name('tutorial.a
 Route::get('/tutoriales/{id}', 'TutorialController@showTutorial')->name('tutorial');
 Route::post('/tutoriales/', 'TutorialController@doCreateTutorial')->name('tutorial.post');
 Route::get('/tutoriales/edit/{id}', 'TutorialController@editTutorial')->name('tutorial.edit');
-Route::post('/tutoriales/edit/{id}', 'TutorialController@editTutorial')->name('tutorial.edit.post');
+Route::post('/tutoriales/edit/{id}', 'TutorialController@doEditTutorial')->name('tutorial.edit.post');
 Route::post('/tutoriales/delete/{id}', 'TutorialController@deleteTutorial')->name('tutorial.delete');
 
 Route::get('/tv/', 'TvController@showTvs')->name('tv.all');

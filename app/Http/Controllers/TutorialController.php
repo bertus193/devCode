@@ -51,6 +51,23 @@ class TutorialController extends Controller
         }
     }
 
+    public function doEditTutorial(Request $request, $id){
+        if ($request->isMethod('post')){
+            $name = $request->input('name');
+            if(Tutorial::where('id',$id)->count() == 1){
+                $tutorial = Tutorial::find($id);
+                $tutorial->name         = $name;
+                $tutorial->description  = $request->input('description');
+                $tutorial->save();
+                return response()->json(['response' => 'OK']); 
+            }
+            else{
+                return response()->json(['error' => 'No existe un tutorial con dicho id']);
+            }
+        }
+        return response()->json(['error' => 'This is post method']);
+    }
+
     public function doCreateTutorial(Request $request){
         if ($request->isMethod('post')){
             $name = $request->input('name');
