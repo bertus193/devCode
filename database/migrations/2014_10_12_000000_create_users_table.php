@@ -20,7 +20,8 @@ class CreateUsersTable extends Migration
             $table->integer('rank');
             $table->string('password',64);
             $table->string('remember_token', 100)->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
         });
     }
 

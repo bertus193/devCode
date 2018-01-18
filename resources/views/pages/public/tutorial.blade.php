@@ -30,7 +30,7 @@
                     <div class="tutorial_description">
                         {{$tutorial->description}}
                         <br>
-                        <div class="tutorial_creation_date">Fecha de creación: {{$tutorial->date}}</div>       
+                        <div class="tutorial_creation_date">Fecha de creación: <?php print date("d-m-Y", strtotime($tutorial->date)); ?></div>       
                     </div>
                 </div>
             </div>

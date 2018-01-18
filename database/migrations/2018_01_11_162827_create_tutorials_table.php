@@ -18,7 +18,7 @@ class CreateTutorialsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('author_id')->unsigned();
-            $table->string('date');
+            $table->dateTime('date');
             $table->string('image');
 
             $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
