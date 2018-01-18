@@ -4,24 +4,27 @@
 {{HTML::script('js/jquery.dataTables.min.js')}}
 <script type="text/javascript">
 function btn_tutorial_create(){
-        /*$.ajax({
-            url: "",
-            type: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            data: { id : id },
-            dataType: 'JSON',
-            success: function (data) {
-                console.log(data.response);
-                if(data.response && data.response == "OK"){
-                    publicSuccessMsg("Tutorial eliminado correctamente")
-                    table.row('.selected').remove().draw( false );
-                } else if(data.error){
-                    publicErrorMsg(data.error);
-                }    
-            }
-        });*/
+    var tutorialData = JSON.parse(JSON.stringify(
+    {
+        'name': $('input[id=name]').val(), 
+        'description': $('textarea[id=description]').val()
+    }));
+    $.ajax({
+        url: "{{ route('tutorial.post') }}",
+        type: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: tutorialData,
+        dataType: 'JSON',
+        success: function (data) {
+            if(data.response && data.response == "OK"){
+                publicSuccessMsg("Tutorial creado correctamente")
+            } else if(data.error){
+                publicErrorMsg(data.error);
+            }    
+        }
+    });
 }
 function btn_tutorial_edit(id){
         /*$.ajax({
@@ -52,8 +55,8 @@ function btn_tutorial_edit(id){
         @if($tutorial == "new")
             <h4 class="form-signin-heading text-left">Nuevo tutorial</h4>
             <div id="notificationMsg" style=""></div>
-            <input id="email" class="form-control" placeholder="Nombre" required="" autofocus="" type="text">
-            <textarea style="margin-top: 20px;" placeholder="Descripción" class="form-control" id="exampleTextarea" rows="3"></textarea>
+            <input id="name" class="form-control" placeholder="Nombre" required="" autofocus="" type="text">
+            <textarea id="description" style="margin-top: 20px;" placeholder="Descripción" class="form-control" id="exampleTextarea" rows="3"></textarea>
             <button onclick="btn_tutorial_create()" style="margin-top: 20px;width:auto" class="btn btn-primary" type="submit">Crear tutorial</button>
         @else
             <h4 class="form-signin-heading text-left" style="margin-top: 40px;">Editar tutorial</h4>

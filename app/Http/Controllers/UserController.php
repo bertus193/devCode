@@ -17,7 +17,7 @@ class UserController extends Controller
             return View::make('pages/public/login');
         }
 
-        return View::make('pages/user/profile');
+        return redirect()->route('user.profile');
     }
 
     public function showProfile() {
@@ -25,7 +25,7 @@ class UserController extends Controller
             return View::make('pages/user/profile');
         }
         
-        return View::make('pages/public/login');
+        return redirect()->route('user.login.get');
     }
     
     public function showRegister() {
@@ -33,7 +33,7 @@ class UserController extends Controller
             return View::make('pages/public/register');
         }
 
-        return View::make('pages/user/profile');
+        return redirect()->route('user.profile');
     }
 
     public function doRegister(Request $request){
@@ -67,10 +67,7 @@ class UserController extends Controller
                 return response()->json(['response' => 'OK']); 
             } else{
                 return response()->json(['error' => 'Login incorrecto']); 
-            }
-            
-            
-            
+            } 
         }
         return response()->json(['error' => 'This is post method']);
     }
