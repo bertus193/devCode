@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use View;
 use App\Models\Tutorial;
+use App\Models\Author;
 use Datatables;
 
 class TutorialController extends Controller
@@ -75,7 +76,7 @@ class TutorialController extends Controller
                 $tutorial = new Tutorial();
                 $tutorial->name         = $name;
                 $tutorial->description  = $request->input('description');
-                $tutorial->author_id    = 1;
+                $tutorial->author()->associate(Author::find(9));
                 $tutorial->date         = "30/11/2015";
                 $tutorial->image        = "images/tutorials/laravel-5-nuestro-primer-proyecto-t1.png";
                 $tutorial->save();

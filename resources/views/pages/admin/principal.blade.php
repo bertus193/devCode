@@ -68,7 +68,7 @@ function loadDataTable(){
             {
                 sortable: false,
                 "render": function ( data, type, full, meta ) {
-                    return '<button id="btn_tutorial_edit" type="button" class="btn btn-primary" style="padding: 0.35rem 0.75rem;"><i class="fa fa-pencil"></i></button>';
+                    return '<form action="{{ route("tutorial.edit", ["id"=> ""]) }}/'+full.id+'"><button id="btn_tutorial_edit" type="submit" class="btn btn-primary" style="padding: 0.35rem 0.75rem;"><i class="fa fa-pencil"></i></button></form>';
                 }
             },
             {

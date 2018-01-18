@@ -15,12 +15,11 @@
     @foreach ($tutorials as $t)
     <div class="col-md-4">
     <a class="card_url" name="{{$t->name}}" href="{{ route('tutorial',['id'=>$t->id]) }}">
-            <div class="card bg-light mb-4 card_url_div">
+    <div class="card bg-light mb-4 card_url_div">
                 <div class="card-header">
                 {{ HTML::image($t->image, $t->name, array( 'width' => '100%', 'height' => '100%' )) }}
                 </div>
                 <div class="card-body">
-                <!--<h4 class="card-title">Light card title</h4>-->
                 <h4 align=center>{{$t->name}}</h4>
                 <p class="card-text" align=center>{{$t->description}}</p>
                 </div>

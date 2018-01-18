@@ -11,7 +11,7 @@ class Tutorial extends Model
     private $date;
     private $image;
 
-    public function author_id(){
+    public function author(){
         return $this->belongsTo('App\Models\Author');
     }
 
