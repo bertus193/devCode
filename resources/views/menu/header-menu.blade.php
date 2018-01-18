@@ -8,10 +8,10 @@
     <li class="nav-item active">
         <a class="nav-link" href="{{route('tv.all')}}">TV</a>
     </li>
-    @if($signed_in)
+    @if($signed_in && $user->rank == 1)
         <li class="nav-item active">
-        <a class="nav-link" href="{{route('admin')}}">Admin</a>
-    </li>  
+            <a class="nav-link" href="{{route('admin')}}">Admin</a>
+        </li>  
     @endif
 </ul>
 
