@@ -1,14 +1,7 @@
-@extends('layout')
-@section('page')
+@extends('admin')
+@section('adminPage')
 
 {{HTML::script('js/jquery.dataTables.min.js')}}
-<style>
-#notificationMsg{
-    width: 320px;
-    position: absolute;
-    left: 37.5%;
-}
-</style>
 <script type="text/javascript">
 var table;
 function btn_tutorial_remove(id){
@@ -88,16 +81,8 @@ function loadDataTable(){
     });
 }
 </script>
+   
+<button onclick="loadTutorialAdmin()" class="btn btn-success" type="submit" style="margin-top: 70px;">Administrar tutoriales</button>
+<div id="tutos_admin_content"></div>    
 
-        
-<div class="inner-body">
-    <div class="inner-box">
-        <center>
-            <h4>Panel de administración</h4>
-            <div id="notificationMsg"></div>
-        </center>
-        <button onclick="loadTutorialAdmin()" class="btn btn-success" type="submit" style="margin-top: 70px;">Administrar tutoriales</button>
-        <div id="tutos_admin_content"></div>    
-    </div>
-</div>
-@stop
+@endSection
