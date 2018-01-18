@@ -12,13 +12,14 @@
 <script type="text/javascript">
 var table;
 function btn_tutorial_remove(id){
+        var urlDelete = "{{ route('tutorial.delete', ['id'=> '']) }}" + '/' + id;
+        console.log(urlDelete);
         $.ajax({
-            url: "{{ route('tutorial.delete') }}",
+            url: urlDelete,
             type: 'POST',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            data: { id : id },
             dataType: 'JSON',
             success: function (data) {
                 console.log(data.response);
@@ -35,7 +36,12 @@ function btn_tutorial_remove(id){
 function loadTutorialAdmin() {
    var tutos_admin_content = document.getElementById("tutos_admin_content");
    if(tutos_admin_content.innerHTML == ''){
-    tutos_admin_content.innerHTML = '<br><h5>Tutoriales</h5><br>\
+    tutos_admin_content.innerHTML = '<br><h5>Tutoriales</h5>\
+    <div style="text-align: right;margin-bottom: 7px;">\
+    <form action="{{route("tutorial.edit",["id"=> "new"])}}">\
+    <button type="submit" class="btn btn-success" style="padding: 0.35rem 0.75rem;">\
+        Nuevo tutorial\
+    </button></form></div>\
         <div class="container">\
         <table id="datatable" class="table table-hover table-condensed">\
             <thead>\

@@ -10,6 +10,6 @@ class InterestController extends Controller
 {
     public function showInterest() {
         $interests = Interest::all();
-        return View::make('pages/interests')->with('interests', $interests);
+        return View::make('pages/user/interests')->with('interests', $interests);
     }
 }

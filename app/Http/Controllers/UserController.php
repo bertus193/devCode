@@ -14,26 +14,26 @@ class UserController extends Controller
     
     public function showLogin() {
         if($this->user == null){
-            return View::make('pages/login');
+            return View::make('pages/public/login');
         }
 
-        return View::make('pages/profile');
+        return View::make('pages/user/profile');
     }
 
     public function showProfile() {
         if($this->user != null){
-            return View::make('pages/profile');
+            return View::make('pages/user/profile');
         }
         
-        return View::make('pages/login');
+        return View::make('pages/public/login');
     }
     
     public function showRegister() {
         if($this->user == null){
-            return View::make('pages/register');
+            return View::make('pages/public/register');
         }
 
-        return View::make('pages/profile');
+        return View::make('pages/user/profile');
     }
 
     public function doRegister(Request $request){

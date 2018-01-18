@@ -1,10 +1,10 @@
 @extends('layout')
 @section('page')
+{{HTML::script('js/jquery.dataTables.min.js')}}
 
 <div class="inner-body">
     <div class="inner-box">
         <h2>Cursos</h2><br>
-        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
         <div class="container">
         <table id="datatable" class="table table-hover table-condensed">
             <thead>

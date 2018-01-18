@@ -14,7 +14,7 @@ class CourseController extends Controller
     public function showCourses() {
         $courses = Course::all();
         
-        return View::make('pages/courses')->with('courses', $courses);
+        return View::make('pages/public/courses')->with('courses', $courses);
     }
 
     public function getCourses()
@@ -27,6 +27,6 @@ class CourseController extends Controller
 
     public function showCourse($id) {
         $course = Course::find($id);
-        return View::make('pages/course')->with('course', $course);
+        return View::make('pages/public/course')->with('course', $course);
     }
 }

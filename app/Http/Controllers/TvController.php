@@ -11,11 +11,11 @@ class TvController extends Controller
     public function showTvs() {
         $tvs = Tv::all();
 
-        return View::make('pages/tvs')->with('tvs', $tvs);
+        return View::make('pages/public/tvs')->with('tvs', $tvs);
     }
 
     public function showTv($id) {
         $tv = Tv::find($id);
-        return View::make('pages/tv')->with('tv', $tv);
+        return View::make('pages/public/tv')->with('tv', $tv);
     }
 }
