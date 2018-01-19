@@ -1,13 +1,10 @@
 @extends('layout')
 @section('page')
-
 <style type="text/css">
 		.table_url:hover{
 			text-decoration: none;
 		}
-		.table_url_th:hover{
-			border: 1px solid #121212;
-		}
+		
 		#maincontainer {
 			width: 400px;
 			height: 80px;
