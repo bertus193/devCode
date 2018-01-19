@@ -22,7 +22,9 @@ Route::get('/tutoriales/{id}', 'TutorialController@showTutorial')->name('tutoria
 Route::get('/tv/', 'TvController@showTvs')->name('tv.all');
 Route::get('/tv/{id}', 'TvController@showTv')->name('tv');
 
-Route::get('/planes/', 'PlansController@showPlan')->name('plan.all');
+Route::get('/planes/', 'PlanController@showPlans')->name('plan.all');
+Route::get('/planes/{id}', 'PlanController@showPlan')->name('plan');
+
 Route::get('/intereses/', 'InterestController@showInterest')->name('interest.all');
 
 Route::get( '/users/login', 'UserController@showLogin')->name('user.login.get');

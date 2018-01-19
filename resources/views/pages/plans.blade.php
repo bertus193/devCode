@@ -1,6 +1,13 @@
 @extends('layout')
 @section('page')
+
 <style type="text/css">
+		.table_url:hover{
+			text-decoration: none;
+		}
+		.table_url_th:hover{
+			border: 1px solid #121212;
+		}
 		#maincontainer {
 			width: 400px;
 			height: 80px;
@@ -64,13 +71,15 @@
 					<tr class="table_header">
 						<th scope="col"> </th>
 						@foreach ($plans as $pl)
-						<th scope="col">
-							<h3> {{$pl->type}} </h2>
+						<th scope="col" class="table_url_th">
+							<a class="table_url" name="{{$pl->type}}" href="{{ route('plan',['id'=>$pl->id]) }}">
+							<h3> {{$pl->type}} </h3>
 							<h4> ${{$pl->monthly_price}}/mes</h3>
 						</th>
 						@endforeach
 					</tr>
-					<tbody>
+				</thead>
+				<tbody>
 						<tr>
 							<td class="table_lateral"> BENEFICIOS </td>
 							<td> Acceso a todos los cursos por 12 meses</td>
@@ -113,8 +122,7 @@
 							<td><img src='images\check.JPG'></td>
 							<td><img src='images\x.JPG'></img></td>
 						</tr>
-				</tbody>
-			</thead>
+			</tbody>
 		</table>
 	</div>
 </div>
