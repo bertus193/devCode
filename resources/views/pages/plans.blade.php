@@ -4,7 +4,7 @@
 		.table_url:hover{
 			text-decoration: none;
 		}
-		
+
 		#maincontainer {
 			width: 400px;
 			height: 80px;
@@ -54,70 +54,73 @@
 		<h1 align=center> Suscríbete a Devcode <h1>
 		<h3 align=center> Y forma parte de los más de 120 mil estudiantes que están aprendiendo con nosotros </h2>
 		<div id="maincontainer">
-			<div id="leftcolumn"><img src='images\users.png' class="center"></div>
+			<div id="leftcolumn">{{ HTML::image('images/users.png', 'users', array('class' => 'center')) }}</div>
 			<div id="contentwrapper">
 				<p> ¿Tienes dudas en algun plan? </p>
-				<p> Háblanos por <img src='images\whatsapp.png' width="18" height="18"> +51 980654016 </p>
+				<p> Háblanos por {{ HTML::image('images/whatsapp.png', 'whatsapp', array( 'width' => '18px', 'height' => '18px' )) }} +51 980654016 </p>
 			</div>
 		</div>
 	</div>
+
+	@for ($i = 0; $i < count($plans); $i++)
+	<img src='images\whatsapp.png' width="18" height="18">
+	@endfor
 
 	<div class="card">
 		<table align="center">
 				<thead>
 					<tr class="table_header">
 						<th scope="col"> </th>
-						@foreach ($plans as $pl)
+						@for ($i = 0; $i < count($plans) - 1; $i++)
 						<th scope="col" class="table_url_th">
-							<a class="table_url" name="{{$pl->type}}" href="{{ route('plan',['id'=>$pl->id]) }}">
-							<h3> {{$pl->type}} </h3>
-							<h4> ${{$pl->monthly_price}}/mes</h3>
+							<h3> {{$plans[$i]->type}} </h3>
+							<h4> ${{$plans[$i]->monthly_price}}/mes</h3>
 						</th>
-						@endforeach
+						@endfor
 					</tr>
 				</thead>
 				<tbody>
 						<tr>
-							<td class="table_lateral"> BENEFICIOS </td>
+							<td class="table_lateral"> Beneficios</td>
 							<td> Acceso a todos los cursos por 12 meses</td>
 							<td> Acceso a todos los cursos por 1 mes </td>
 							<td> Acceso al contenido gratuito </td>
 						</tr>
 						<tr>
 							<td class="table_lateral"> Acceso a cursos gratuitos </td>
-							<td><img src='images\check.JPG'></img></td>
-							<td><img src='images\check.JPG'></img></td>
-							<td><img src='images\check.JPG'></img></td>
+							<td>{{ HTML::image('images/check.JPG') }}</td>
+							<td>{{ HTML::image('images/check.JPG') }}</td>
+							<td>{{ HTML::image('images/check.JPG') }}</td>
 						</tr>
 						<tr>
 							<td class="table_lateral"> Cursos nuevos todos los meses </td>
-							<td><img src='images\check.JPG'></img></td>
-							<td><img src='images\check.JPG'></img></td>
-							<td><img src='images\x.JPG'></img></td>
+							<td>{{ HTML::image('images/check.JPG') }}</img></td>
+							<td>{{ HTML::image('images/check.JPG') }}</td>
+							<td>{{ HTML::image('images/x.JPG') }}</td>
 						</tr>
 						<tr>
 							<td class="table_lateral"> Acceso a todos los repositorios de proyectos </td>
-							<td><img src='images\check.JPG'></img></td>
-							<td><img src='images\check.JPG'></img></td>
-							<td><img src='images\x.JPG'></img></td>
+							<td>{{ HTML::image('images/check.JPG') }}</td>
+							<td>{{ HTML::image('images/check.JPG') }}</td>
+							<td>{{ HTML::image('images/x.JPG') }}</td>
 						</tr>
 						<tr>
 							<td class="table_lateral"> Respuesta a tus preguntas por la comunidad </td>
-							<td><img src='images\check.JPG'></img></td>
-							<td><img src='images\check.JPG'></img></td>
-							<td><img src='images\check.JPG'></td>
+							<td>{{ HTML::image('images/check.JPG') }}</td>
+							<td>{{ HTML::image('images/check.JPG') }}</td>
+							<td>{{ HTML::image('images/check.JPG') }}</td>
 						</tr>
 						<tr>
 							<td class="table_lateral"> Pago con tarjeta de crédito o débito </td>
-							<td><img src='images\check.JPG'></img></td>
-							<td><img src='images\check.JPG'></img></td>
-							<td><img src='images\x.JPG'></img></td>
+							<td>{{ HTML::image('images/check.JPG') }}</td>
+							<td>{{ HTML::image('images/check.JPG') }}</td>
+							<td>{{ HTML::image('images/x.JPG') }}</td>
 						</tr>
 						<tr>
 							<td class="table_lateral"> Pago en depósito, PayPal y otros métodos </td>
-							<td><img src='images\check.JPG'></td>
-							<td><img src='images\check.JPG'></td>
-							<td><img src='images\x.JPG'></img></td>
+							<td>{{ HTML::image('images/check.JPG') }}</td>
+							<td>{{ HTML::image('images/check.JPG') }}</td>
+							<td>{{ HTML::image('images/x.JPG') }}</td>
 						</tr>
 			</tbody>
 		</table>
