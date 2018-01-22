@@ -108,16 +108,37 @@
   .button:hover{
     background:#80b438;
   }
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
   #maincontainer {
     width: auto;
     height: auto;
     margin: auto;
   }
+  #leftcolumn {
+    float:left;
+    display:inline-block;
+    width: 100px;
+    height: 100%;
+  }
+  #contentwrapper {
+    float:left;
+    display:inline-block;
+    width: -moz-calc(100% - 100px);
+    width: -webkit-calc(100% - 100px);
+    width: calc(100% - 100px);
+    height: 100%;
+  }
 
 </style>
 
 <div class="inner-body">
+
   @if($plan != null)
+
   <div class="floating-box col-md-5">
     <div class="card mb-4">
       <center>
@@ -126,7 +147,8 @@
         <h5> {{$plan->benefits}} </h5>
       </center>
       <hr/>
-      <!--<div class="module">-->
+
+      @if(Auth::check())
       <ul style="list-style-type:none;">
         <li class="tab">Regístrate</li>
         <li class="tab activeTab" >Pago</li>
@@ -179,36 +201,64 @@
           </div>
           <input type="button" value="Realizar pago" class="button" />
         </form>
+
+        @else
+        <ul style="list-style-type:none;">
+          <li class="tab activeTab">Regístrate</li>
+          <li class="tab" >Pago</li>
+        </ul>
+        <form class="form">
+          <div id="errorMsg"></div>
+          <input id="email" class="textbox" placeholder="Email" required="" autofocus="" type="email">
+          <input style="margin-top: 20px;" id="name" class="textbox" placeholder="Nombre" required="" autofocus="">
+          <input style="margin-top: 20px;" id="password" class="textbox" placeholder="Contraseña" required="" type="password">
+          <input style="margin-top: 20px;" id="password_rep" class="textbox" placeholder="Repetir contraseña" required="" type="password">
+          <button id="btn-register" style="margin-top: 20px;" class="btn btn-lg btn-primary btn-block" type="submit">Registrarse</button>
+        </form>
+        @endif
       </div>
     </div>
 
     <div class="floating-box col-md-5">
-      <div class="card md-4">
-        <center>
+
         <h4>Beneficios</h4>
         <hr>
         <div id="maincontainer">
-          <h6> Acceso ilimitado </h6>
-          <p> Accede a todos los cursos en cualquier momento, desde cualquier lugar y aprende a tu ritmo por un año.</p>
+          <div id="leftcolumn">{{ HTML::image('images/benefits/icon_accessible.png', 'accessible', array('class'=>'center', 'width' => '50px', 'height' => '50px' )) }}</div>
+          <div id="contentwrapper">
+            <h6> Acceso ilimitado </h6>
+            <p> Accede a todos los cursos en cualquier momento, desde cualquier lugar y aprende a tu ritmo por un año.</p>
+          </div>
         </div>
         <div id="maincontainer">
-          <h6> Respondemos tus Preguntas </h6>
-          <p>Contamos con un equipo de soporte académico pendiente de tus preguntas y una comunidad colaborativa.</p>
+          <div id="leftcolumn">{{ HTML::image('images/benefits/icon_discussion.png', 'discussion', array('class'=>'center', 'width' => '50px', 'height' => '50px' )) }}</div>
+          <div id="contentwrapper">
+            <h6> Respondemos tus Preguntas </h6>
+            <p>Contamos con un equipo de soporte académico pendiente de tus preguntas y una comunidad colaborativa.</p>
+          </div>
         </div>
         <div id="maincontainer">
-          <h6> Certificado de Completitud </h6>
-          <p> Contamos con un equipo de soporte académico pendiente de tus preguntas y una comunidad colaborativa.</p>
+          <div id="leftcolumn">{{ HTML::image('images/benefits/icon_courses.png', 'coures', array('class'=>'center', 'width' => '50px', 'height' => '50px' )) }}</div>
+          <div id="contentwrapper">
+            <h6> Certificado de Completitud </h6>
+            <p> Contamos con un equipo de soporte académico pendiente de tus preguntas y una comunidad colaborativa.</p>
+          </div>
         </div>
         <div id="maincontainer">
-          <h6> Certificado de Completitud </h6>
-          <p> Obtén un certificado digital de completitud al aprobar un examen.</p>
+          <div id="leftcolumn">{{ HTML::image('images/benefits/icon_certificate.png', 'certificate', array('class'=>'center', 'width' => '50px', 'height' => '50px' )) }}</div>
+          <div id="contentwrapper">
+            <h6> Certificado de Completitud </h6>
+            <p> Obtén un certificado digital de completitud al aprobar un examen.</p>
+          </div>
         </div>
         <div id="maincontainer">
-          <h6> Múltiples medio de Pago </h6>
-          <p> Aceptamos pagos con tarjeta de crédito, débito, Paypal, Western Union, entre otros.</p>
+          <div id="leftcolumn">{{ HTML::image('images/benefits/icon_payment.png', 'payment', array('class'=>'center', 'width' => '50px', 'height' => '50px' )) }}</div>
+          <div id="contentwrapper">
+            <h6> Múltiples medio de Pago </h6>
+            <p> Aceptamos pagos con tarjeta de crédito, débito, Paypal, Western Union, entre otros.</p>
+          </div>
         </div>
-      </center>
-      </div>
+  
     </div>
   </div>
   @else

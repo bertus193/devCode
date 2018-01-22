@@ -46,10 +46,11 @@
     	margin-left: auto;
     	margin-right: auto;
     	display: block;
-}
+		}
 </style>
 
 <div class="inner-body">
+
 	<div class="col-md-12">
 		<h1 align=center> Suscríbete a Devcode <h1>
 		<h3 align=center> Y forma parte de los más de 120 mil estudiantes que están aprendiendo con nosotros </h2>
@@ -62,10 +63,6 @@
 		</div>
 	</div>
 
-	@for ($i = 0; $i < count($plans); $i++)
-	<img src='images\whatsapp.png' width="18" height="18">
-	@endfor
-
 	<div class="card">
 		<table align="center">
 				<thead>
@@ -75,8 +72,18 @@
 						<th scope="col" class="table_url_th">
 							<h3> {{$plans[$i]->type}} </h3>
 							<h4> ${{$plans[$i]->monthly_price}}/mes</h3>
+							<form action="{{ route('plan',['id'=>$plans[$i]->id]) }}">
+								<button class="btn btn-success" type="submit">Inscríbete</button>
+							</form>
 						</th>
 						@endfor
+						<th scope="col" class="table_url_th">
+							<h3> {{$plans[$i]->type}} </h3>
+							<h4> ${{$plans[$i]->monthly_price}}/mes</h3>
+							<form action="{{route('user.register.get')}}">
+								<button class="btn btn-success" type="submit">Inscríbete</button>
+	            </form>
+						</th>
 					</tr>
 				</thead>
 				<tbody>
