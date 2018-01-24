@@ -184,6 +184,47 @@ $(document).ready(function() {
         // stop the form from submitting the normal way and refreshing the page
         event.preventDefault();
     });
+
+    $('#btn-payment').click(function(event) {
+        var errorMsg = document.getElementById("errorMsg");
+
+        var userData = JSON.parse(JSON.stringify(
+                {
+                    'name': $('input[id=name]').val(),
+                    'email': $('input[id=email]').val(),
+                    'numbercount': $('input[id=numbercount]').val(),
+                }));
+
+            $.ajax({
+                url: "{{ route('user.pay.post') }}",
+                type: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: userData,
+                dataType: 'JSON',
+                success: function (data) {
+                    console.log(data)
+                    if(data.response && data.response == "OK"){
+                        errorMsg.innerHTML =
+                        '<div class="alert alert-dismissible alert-success">\
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>\
+                        <strong>¡Enhorabuena!</strong><br> te has registrado correctamente ya puedes iniciar sesión.\
+                        </div>'
+                    } else if(data.error){
+                        errorMsg.innerHTML =
+                        '<div class="alert alert-dismissible alert-danger">\
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>\
+                        <strong>Error:</strong><br>' + data.error + '.\
+                        </div>'
+                    }
+                }
+            });
+        }
+        // stop the form from submitting the normal way and refreshing the page
+        event.preventDefault();
+    });
+
 });
 </script>
 
@@ -207,11 +248,11 @@ $(document).ready(function() {
       </ul>
       <form class="form">
         <label> Nombre como aparece en la tarjeta </label>
-        <input type="text" placeholder="Nombres" class="textbox" />
+        <input id="name" type="text" placeholder="Nombres" class="textbox" />
         <label> Correo electrónico </label>
-        <input type="text" placeholder="Correo Electrónico" class="textbox" />
+        <input id="email" type="text" placeholder="Correo Electrónico" class="textbox" />
         <label> Número de Tarjeta </label>
-        <input type="text" placeholder="0000 0000 0000 0000" class="textbox" />
+        <input id="numbercount" type="text" placeholder="0000 0000 0000 0000" class="textbox" />
         <div class="exp" style="width:25%; display: inline-block;">
         <label>Fecha de Expiración</label>
         <br>
@@ -251,7 +292,7 @@ $(document).ready(function() {
             <label>CVC/CVV</label>
             <input size="4" maxlength="4" id="paymentCVV" class="input profile-complete-form__active" type="text" name="cvc" placeholder="CVC/CVV">
           </div>
-          <input type="button" value="Realizar pago" class="button" />
+          <input id='btn_payment' type="submit" value="Realizar pago" class="button" />
         </form>
 
         @else

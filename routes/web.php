@@ -31,6 +31,7 @@ Route::get( '/users/login', 'UserController@showLogin')->name('user.login.get');
 Route::post('/users/login', 'UserController@doLogin')->name('user.login.post');
 Route::get( '/users/register', 'UserController@showRegister')->name('user.register.get');
 Route::post('/users/register', 'UserController@doRegister')->name('user.register.post');
+Route::post('/users/profile', 'UserController@doPay')->name('user.pay.post');
 
 Route::post('/users/logout', 'UserController@doLogout')->name('user.logout.post');
 Route::get( '/users/profile', 'UserController@showProfile')->name('user.profile');

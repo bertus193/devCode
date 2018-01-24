@@ -11,7 +11,7 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    
+
     public function showLogin() {
         if($this->user == null){
             return View::make('pages/login');
@@ -24,10 +24,10 @@ class UserController extends Controller
         if($this->user != null){
             return View::make('pages/profile');
         }
-        
+
         return View::make('pages/login');
     }
-    
+
     public function showRegister() {
         if($this->user == null){
             return View::make('pages/register');
@@ -39,13 +39,17 @@ class UserController extends Controller
     public function doRegister(Request $request){
         if ($request->isMethod('post')){
             $email = $request->input('email');
+            $rank = 0;
+            $plan_id = 3;
             if(User::where('email',$email)->count() == 0){
                 $user = new User();
                 $user->name = $request->input('name');
                 $user->email = $email;
+                $user->rank = $rank;
                 $user->password = bcrypt($request->input('password'));
+                $user->plan_id = $plan_id;
                 $user->save();
-                return response()->json(['response' => 'OK']); 
+                return response()->json(['response' => 'OK']);
             }
             else{
                 return response()->json(['error' => 'Email no válido']);
@@ -64,13 +68,13 @@ class UserController extends Controller
                 'password'    => $request->input('password')
             );
             if (Auth::attempt($userData, $request->input('remember-me'))) {
-                return response()->json(['response' => 'OK']); 
+                return response()->json(['response' => 'OK']);
             } else{
-                return response()->json(['error' => 'Login incorrecto']); 
+                return response()->json(['error' => 'Login incorrecto']);
             }
-            
-            
-            
+
+
+
         }
         return response()->json(['error' => 'This is post method']);
     }
@@ -80,13 +84,34 @@ class UserController extends Controller
         Auth::logout();
     }
 
+    public function doPay(Request $request){
+        if ($request->isMethod('post')){
+            $email = $request->input('email');
+            $rank = 1;
+            $plan_id = 3;
+            if(User::where('email',$email)->count() != 0){
+                $user = User::where('email',$email) -> first();
+                $user->rank = $rank;
+                $user->plan_id = $plan_id;
+                $user->save();
+                return response()->json(['response' => 'OK']);
+            }
+            else{
+                return response()->json(['error' => 'Email no válido']);
+            }
+        }
+        else{
+            return response()->json(['error' => 'This is post method']);
+        }
+    }
+
     public function leaveCourse(Request $request, $id){
         $this->user->courses()->detach($id);
-        return response()->json(['response' => 'OK']); 
+        return response()->json(['response' => 'OK']);
     }
 
     public function joinCourse(Request $request, $id){
         $this->user->courses()->attach($id);
-        return response()->json(['response' => 'OK']); 
+        return response()->json(['response' => 'OK']);
     }
 }

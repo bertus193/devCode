@@ -23,8 +23,8 @@ $(document).ready(function() {
         else{
             var userData = JSON.parse(JSON.stringify(
                 {
-                    'name': $('input[id=name]').val(), 
-                    'email': $('input[id=email]').val(), 
+                    'name': $('input[id=name]').val(),
+                    'email': $('input[id=email]').val(),
                     'password': password
                 }));
 
@@ -39,18 +39,18 @@ $(document).ready(function() {
                 success: function (data) {
                     console.log(data)
                     if(data.response && data.response == "OK"){
-                        errorMsg.innerHTML = 
+                        errorMsg.innerHTML =
                         '<div class="alert alert-dismissible alert-success">\
                         <button type="button" class="close" data-dismiss="alert">&times;</button>\
                         <strong>¡Enhorabuena!</strong><br> te has registrado correctamente ya puedes iniciar sesión.\
                         </div>'
                     } else if(data.error){
-                        errorMsg.innerHTML = 
+                        errorMsg.innerHTML =
                         '<div class="alert alert-dismissible alert-danger">\
                         <button type="button" class="close" data-dismiss="alert">&times;</button>\
                         <strong>Error:</strong><br>' + data.error + '.\
                         </div>'
-                    }    
+                    }
                 }
             });
         }
