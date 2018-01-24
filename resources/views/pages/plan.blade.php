@@ -132,8 +132,60 @@
     width: calc(100% - 100px);
     height: 100%;
   }
-
 </style>
+
+<script>
+$(document).ready(function() {
+    $('#btn-register').click(function(event) {
+        var errorMsg = document.getElementById("errorMsg");
+        var password = $('input[id=password]').val();
+        var password_rep = $('input[id=password_rep]').val();
+
+        if(password != password_rep){
+            errorMsg.innerHTML = '<div class="alert alert-dismissible alert-danger">\
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>\
+                        <strong>Error:</strong><br>Las contraseñas deben coincidir.\
+                        </div>';
+        }
+        else{
+            var userData = JSON.parse(JSON.stringify(
+                {
+                    'name': $('input[id=name]').val(),
+                    'email': $('input[id=email]').val(),
+                    'password': password
+                }));
+
+            $.ajax({
+                url: "{{ route('user.register.post') }}",
+                type: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: userData,
+                dataType: 'JSON',
+                success: function (data) {
+                    console.log(data)
+                    if(data.response && data.response == "OK"){
+                        errorMsg.innerHTML =
+                        '<div class="alert alert-dismissible alert-success">\
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>\
+                        <strong>¡Enhorabuena!</strong><br> te has registrado correctamente ya puedes iniciar sesión.\
+                        </div>'
+                    } else if(data.error){
+                        errorMsg.innerHTML =
+                        '<div class="alert alert-dismissible alert-danger">\
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>\
+                        <strong>Error:</strong><br>' + data.error + '.\
+                        </div>'
+                    }
+                }
+            });
+        }
+        // stop the form from submitting the normal way and refreshing the page
+        event.preventDefault();
+    });
+});
+</script>
 
 <div class="inner-body">
 
@@ -258,7 +310,7 @@
             <p> Aceptamos pagos con tarjeta de crédito, débito, Paypal, Western Union, entre otros.</p>
           </div>
         </div>
-  
+
     </div>
   </div>
   @else

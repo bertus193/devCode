@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name', 32);
             $table->string('email', 120)->unique();
+            $table->integer('rank')->unsigned();
             $table->string('password',64);
             $table->integer('plan_id')->unsigned();;
             $table->string('remember_token', 100)->nullable();
