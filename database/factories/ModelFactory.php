@@ -15,11 +15,17 @@
 
 $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     static $password;
+    $rank = $faker->numberBetween($min = 0, $max = 1);
+    $plan_id = null;
+    if($rank == 1){
+        $plan_id = $faker->numberBetween($min = 1, $max = 3);
+    }
 
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
-        'rank' => $faker->numberBetween($min = 1, $max = 3)
+        'rank' => $rank,
+        'plan_id' => $plan_id
     ];
 });

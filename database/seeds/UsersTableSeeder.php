@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
             DB::table('users')->delete();
             $user = [
                 ['id' => 1, 'name' => 'Usuario Prueba', 'email' => 'user@example.org', 'rank' => 0,'password' => bcrypt('secret')],
-                ['id' => 2, 'name' => 'Usuario Admin Prueba', 'email' => 'admin@example.org', 'rank' => 1, 'password' => bcrypt('secret')]
+                ['id' => 2, 'name' => 'Usuario Admin Prueba', 'email' => 'admin@example.org', 'rank' => 2, 'password' => bcrypt('secret')]
             ];
             DB::table('users')->insert($user);
             
