@@ -78,7 +78,9 @@
 							<h3> {{$plans[$i]->type}} </h3>
 							<h5> ${{$plans[$i]->monthly_price}}/mes</h5>
                             <form action="{{ route('plan',['id'=>$plans[$i]->id]) }}">
-                            @if($user->plan->id == $plans[$i]->id)
+                            @if($signed_in == 0)
+                                <button class="btn btn-success" type="submit">Inscríbete!</button>
+                            @elseif($user->plan->id == $plans[$i]->id)
                                 <button class="btn btn-primary" type="submit">Ir a tu plan</button>
                             @else
                                 <button class="btn btn-success" type="submit">Inscríbete!</button>
