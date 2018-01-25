@@ -84,25 +84,15 @@ class UserController extends Controller
         Auth::logout();
     }
 
-    public function doPay(Request $request){
+    public function doPay(Request $request, $id){
         if ($request->isMethod('post')){
-            $email = $request->input('email');
-            $rank = 1;
-            $plan_id = 3;
-            if(User::where('email',$email)->count() != 0){
-                $user = User::where('email',$email) -> first();
-                $user->rank = $rank;
-                $user->plan_id = $plan_id;
-                $user->save();
-                return response()->json(['response' => 'OK']);
-            }
-            else{
-                return response()->json(['error' => 'Email no válido']);
-            }
+          $user = new User();
+          $user = $this->user;
+          $user->rank = 1;
+          $user->save();
+          return response()->json(['response' => 'OK']);
         }
-        else{
-            return response()->json(['error' => 'This is post method']);
-        }
+        return response()->json(['error' => 'This is post method']);
     }
 
     public function leaveCourse(Request $request, $id){

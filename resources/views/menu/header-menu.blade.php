@@ -27,8 +27,12 @@
     <li class="nav-item active">
         <a class="nav-link" style="line-height: 19px;" href="{{route('user.profile')}}">Perfil</a>
     </li>
+    @if($user->rank!=1)
     <li class="nav-item">
-        <button class="btn btn-warning" type="submit">¡Sé premium!</button>
+        <form action="{{route('plan.all')}}">
+          <button class="btn btn-warning" type="submit">¡Sé premium!</button>
+        </form>
     </li>
+    @endif
     @endif
 </ul>

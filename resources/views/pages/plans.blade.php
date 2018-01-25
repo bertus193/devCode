@@ -69,13 +69,16 @@
 					<tr class="table_header">
 						<th scope="col"> </th>
 						@for ($i = 0; $i < count($plans) - 1; $i++)
+
 						<th scope="col" class="table_url_th">
 							<h3> {{$plans[$i]->type}} </h3>
 							<h4> ${{$plans[$i]->monthly_price}}/mes</h3>
 							<form action="{{ route('plan',['id'=>$plans[$i]->id]) }}">
 								<button class="btn btn-success" type="submit">Inscríbete</button>
 							</form>
+
 						</th>
+
 						@endfor
 						<th scope="col" class="table_url_th">
 							<h3> {{$plans[$i]->type}} </h3>
