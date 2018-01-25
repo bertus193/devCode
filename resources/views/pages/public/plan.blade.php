@@ -95,7 +95,7 @@ $(document).ready(function() {
             success: function (data) {
                 console.log(data)
                 if(data.response && data.response == "OK"){
-                    window.location="{{route('user.profile')}}"
+                    window.location="{{route('plan.all')}}"
                 } else if(data.error){
                     publicErrorMsg(data.error)
                 }    
@@ -124,6 +124,10 @@ $(document).ready(function() {
                     <div class="alert alert-dismissible alert-success userInPlan">
                         Ya estás registrado en este plan</a>
                     </div>
+                @elseif($plan->id == 3)
+                <div align="center" style="margin: 25px;">
+                    <input id='btn-payment' type="submit" value="Inscribirse en el plan gratuito" class="btn btn-success" />
+                </div>
                 @else
                     <ul style="list-style-type:none;">
                         <li class="tab">Regístrate</li>
@@ -179,55 +183,60 @@ $(document).ready(function() {
                 </div>
             @endif
         </div>
-
         <div class="card col-md-5" style="margin-left: 20px;">
             <h4 style="text-align:center;margin: 15px 0 -5px 0">Beneficios</h4>
             <hr>
-            <div id="maincontainer">
-                <div id="leftcolumn">
-                    {{ HTML::image('images/benefits/icon_accessible.png', 'accessible', array('class'=>'icon-center', 'width' => '50px', 'height' => '50px' )) }}
+            @if($plan->id != 3)
+                <div id="maincontainer">
+                    <div id="leftcolumn">
+                        {{ HTML::image('images/benefits/icon_accessible.png', 'accessible', array('class'=>'icon-center', 'width' => '50px', 'height' => '50px' )) }}
+                    </div>
+                    <div id="contentwrapper">
+                        <h6> Acceso ilimitado </h6>
+                        <p> Accede a todos los cursos en cualquier momento, desde cualquier lugar y aprende a tu ritmo por un año.</p>
+                    </div>
                 </div>
-                <div id="contentwrapper">
-                    <h6> Acceso ilimitado </h6>
-                    <p> Accede a todos los cursos en cualquier momento, desde cualquier lugar y aprende a tu ritmo por un año.</p>
+                <div id="maincontainer">
+                    <div id="leftcolumn">
+                        {{ HTML::image('images/benefits/icon_discussion.png', 'discussion', array('class'=>'icon-center', 'width' => '50px', 'height' => '50px' )) }}
+                    </div>
+                    <div id="contentwrapper">
+                        <h6> Respondemos tus Preguntas </h6>
+                        <p>Contamos con un equipo de soporte académico pendiente de tus preguntas y una comunidad colaborativa.</p>
+                    </div>
                 </div>
+                <div id="maincontainer">
+                    <div id="leftcolumn">
+                        {{ HTML::image('images/benefits/icon_courses.png', 'coures', array('class'=>'icon-center', 'width' => '50px', 'height' => '50px' )) }}
+                    </div>
+                    <div id="contentwrapper">
+                        <h6> Certificado de Completitud </h6>
+                        <p> Contamos con un equipo de soporte académico pendiente de tus preguntas y una comunidad colaborativa.</p>
+                    </div>
+                </div>
+                <div id="maincontainer">
+                    <div id="leftcolumn">
+                        {{ HTML::image('images/benefits/icon_certificate.png', 'certificate', array('class'=>'icon-center', 'width' => '50px', 'height' => '50px' )) }}
+                    </div>
+                    <div id="contentwrapper">
+                        <h6> Certificado de Completitud </h6>
+                        <p> Obtén un certificado digital de completitud al aprobar un examen.</p>
+                    </div>
+                </div>
+                <div id="maincontainer">
+                    <div id="leftcolumn">
+                        {{ HTML::image('images/benefits/icon_payment.png', 'payment', array('class'=>'icon-center', 'width' => '50px', 'height' => '50px' )) }}
+                    </div>
+                    <div id="contentwrapper">
+                        <h6> Múltiples medio de Pago </h6>
+                        <p> Aceptamos pagos con tarjeta de crédito, débito, Paypal, Western Union, entre otros.</p>
+                    </div>
+                </div>
+            @else
+            <div class="alert alert-dismissible alert-warning userInPlan">
+                Este plan no tiene beneficios
             </div>
-            <div id="maincontainer">
-                <div id="leftcolumn">
-                    {{ HTML::image('images/benefits/icon_discussion.png', 'discussion', array('class'=>'icon-center', 'width' => '50px', 'height' => '50px' )) }}
-                </div>
-                <div id="contentwrapper">
-                    <h6> Respondemos tus Preguntas </h6>
-                    <p>Contamos con un equipo de soporte académico pendiente de tus preguntas y una comunidad colaborativa.</p>
-                </div>
-            </div>
-            <div id="maincontainer">
-                <div id="leftcolumn">
-                    {{ HTML::image('images/benefits/icon_courses.png', 'coures', array('class'=>'icon-center', 'width' => '50px', 'height' => '50px' )) }}
-                </div>
-                <div id="contentwrapper">
-                    <h6> Certificado de Completitud </h6>
-                    <p> Contamos con un equipo de soporte académico pendiente de tus preguntas y una comunidad colaborativa.</p>
-                </div>
-            </div>
-            <div id="maincontainer">
-                <div id="leftcolumn">
-                    {{ HTML::image('images/benefits/icon_certificate.png', 'certificate', array('class'=>'icon-center', 'width' => '50px', 'height' => '50px' )) }}
-                </div>
-                <div id="contentwrapper">
-                    <h6> Certificado de Completitud </h6>
-                    <p> Obtén un certificado digital de completitud al aprobar un examen.</p>
-                </div>
-            </div>
-            <div id="maincontainer">
-                <div id="leftcolumn">
-                    {{ HTML::image('images/benefits/icon_payment.png', 'payment', array('class'=>'icon-center', 'width' => '50px', 'height' => '50px' )) }}
-                </div>
-                <div id="contentwrapper">
-                    <h6> Múltiples medio de Pago </h6>
-                    <p> Aceptamos pagos con tarjeta de crédito, débito, Paypal, Western Union, entre otros.</p>
-                </div>
-            </div>
+            @endif
         </div>
     </div>
     @else

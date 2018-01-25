@@ -18,7 +18,9 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     $rank = $faker->numberBetween($min = 0, $max = 1);
     $plan_id = null;
     if($rank == 1){
-        $plan_id = $faker->numberBetween($min = 1, $max = 3);
+        $plan_id = $faker->numberBetween($min = 1, $max = 2);
+    } else{
+        $plan_id = 3;
     }
 
     return [

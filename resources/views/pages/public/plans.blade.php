@@ -8,7 +8,11 @@
 		#maincontainer {
 			width: 400px;
 			height: 80px;
-			margin: 0 auto;
+			background-color: #e4e4e4;
+            padding: 11px;
+            margin: 20px;
+            border: 1px solid #ccc !important;
+            border-radius: 5px;
 		}
 		#leftcolumn {
 			float:left;
@@ -51,9 +55,9 @@
 
 <div class="inner-body">
 
-	<div class="col-md-12">
-		<h1 align=center> Suscríbete a Devcode <h1>
-		<h3 align=center> Y forma parte de los más de 120 mil estudiantes que están aprendiendo con nosotros </h2>
+	<div class="col-md-12" align="center">
+		<h3> Suscríbete a Devcode <h1>
+		<h5> Y forma parte de los más de 120 mil estudiantes que están aprendiendo con nosotros </h5>
 		<div id="maincontainer">
 			<div id="leftcolumn">{{ HTML::image('images/users.png', 'users', array('class' => 'center')) }}</div>
 			<div id="contentwrapper">
@@ -68,25 +72,21 @@
 				<thead>
 					<tr class="table_header">
 						<th scope="col"> </th>
-						@for ($i = 0; $i < count($plans) - 1; $i++)
+						@for ($i = 0; $i < count($plans); $i++)
 
 						<th scope="col" class="table_url_th">
 							<h3> {{$plans[$i]->type}} </h3>
-							<h4> ${{$plans[$i]->monthly_price}}/mes</h3>
-							<form action="{{ route('plan',['id'=>$plans[$i]->id]) }}">
-								<button class="btn btn-success" type="submit">Inscríbete</button>
+							<h5> ${{$plans[$i]->monthly_price}}/mes</h5>
+                            <form action="{{ route('plan',['id'=>$plans[$i]->id]) }}">
+                            @if($user->plan->id == $plans[$i]->id)
+                                <button class="btn btn-primary" type="submit">Ir a tu plan</button>
+                            @else
+                                <button class="btn btn-success" type="submit">Inscríbete!</button>
+                            @endif
 							</form>
-
 						</th>
 
 						@endfor
-						<th scope="col" class="table_url_th">
-							<h3> {{$plans[$i]->type}} </h3>
-							<h4> ${{$plans[$i]->monthly_price}}/mes</h3>
-							<form action="{{route('user.register.get')}}">
-								<button class="btn btn-success" type="submit">Inscríbete</button>
-	            </form>
-						</th>
 					</tr>
 				</thead>
 				<tbody>
