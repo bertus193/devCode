@@ -10,11 +10,11 @@ class PlanController extends Controller
 {
     public function showPlans() {
         $plans = Plan::all();
-        return View::make('pages/plans')->with('plans', $plans);
+        return View::make('pages/public/plans')->with('plans', $plans);
     }
 
     public function showPlan($id) {
         $plan = Plan::find($id);
-        return View::make('pages/plan')->with('plan', $plan);
+        return View::make('pages/public/plan')->with('plan', $plan);
     }
 }

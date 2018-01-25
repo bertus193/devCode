@@ -83,9 +83,9 @@ class UserController extends Controller
 
     public function doPay(Request $request, $id){
         if ($request->isMethod('post')){
-          $user = new User();
           $user = $this->user;
           $user->rank = 1;
+          $user->plan_id = $id;
           $user->save();
           return response()->json(['response' => 'OK']);
         }
