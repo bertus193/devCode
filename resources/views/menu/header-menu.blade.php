@@ -8,6 +8,9 @@
     <li class="nav-item active">
         <a class="nav-link" href="{{route('tv.all')}}">TV</a>
     </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{route('plan.all')}}">Planes</a>
+    </li>
     @if($signed_in && $user->rank == 1)
         <li class="nav-item active">
             <a class="nav-link" href="{{route('admin')}}">Admin</a>
@@ -29,8 +32,12 @@
     <li class="nav-item active">
         <a class="nav-link" style="line-height: 19px;" href="{{route('user.profile')}}">Perfil</a>
     </li>
+    @if($user->rank!=1)
     <li class="nav-item">
-        <button class="btn btn-warning" type="submit">¡Sé premium!</button>
+        <form action="{{route('plan.all')}}">
+          <button class="btn btn-warning" type="submit">¡Sé premium!</button>
+        </form>
     </li>
+    @endif
     @endif
 </ul>

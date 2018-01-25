@@ -10,7 +10,7 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'name', 'email', 'password', 'rank'
+        'name', 'email', 'rank', 'password', 'plan_id',
     ];
 
     protected $hidden = [
@@ -21,5 +21,10 @@ class User extends Authenticatable
     public function courses()
     {
         return $this->belongsToMany('App\Models\Course', 'users_courses');
+    }
+
+    public function plans()
+    {
+        return $this->belongsTo('App\Models\Plan');
     }
 }

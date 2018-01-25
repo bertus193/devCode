@@ -27,12 +27,17 @@ Route::post('/tutoriales/delete/{id}', 'TutorialController@deleteTutorial')->nam
 Route::get('/tv/', 'TvController@showTvs')->name('tv.all');
 Route::get('/tv/{id}', 'TvController@showTv')->name('tv');
 
+Route::get('/planes/', 'PlanController@showPlans')->name('plan.all');
+Route::get('/planes/{id}', 'PlanController@showPlan')->name('plan');
+
 Route::get('/intereses/', 'InterestController@showInterest')->name('interest.all');
 
 Route::get( '/users/login', 'UserController@showLogin')->name('user.login.get');
 Route::post('/users/login', 'UserController@doLogin')->name('user.login.post');
 Route::get( '/users/register', 'UserController@showRegister')->name('user.register.get');
 Route::post('/users/register', 'UserController@doRegister')->name('user.register.post');
+
+Route::post('/users/pay/{id}', 'UserController@doPay')->name('user.pay.post');
 
 Route::post('/users/logout', 'UserController@doLogout')->name('user.logout.post');
 Route::get( '/users/profile', 'UserController@showProfile')->name('user.profile');

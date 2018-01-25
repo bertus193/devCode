@@ -1,6 +1,6 @@
 @extends('layout')
 @section('page')
-			
+
 <div class="home-header">
     <div class="home-header__image">
     </div>

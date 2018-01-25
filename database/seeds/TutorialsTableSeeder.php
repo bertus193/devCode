@@ -32,7 +32,7 @@ class TutorialsTableSeeder extends Seeder
               ['id' => 14, 'name' => 'Cómo conectar MongoDB en Node.js', 'description' => 'MongoDB es una de las bases de datos no relacionales más utilizadas en la actualidad, en este tutorial veremos como conectar un proyecto en Node.js con este motor de base de datos.', 'author_id' => 6, 'date' => Carbon::parse('2015-11-30'), 'image' => 'images/tutorials/como-utilizar-mongodb-en-nodejs-t1.jpg'],
               ['id' => 15, 'name' => 'Instalación de WooCommerce en Wordpress', 'description' => 'En este tutorial aprenderemos a instalar WooCommerce en Wordpress para crear nuestra tienda con esta popular plataforma de comercio electrónico.', 'author_id' => 1, 'date' => Carbon::parse('2015-11-30'), 'image' => 'images/tutorials/instalacion-de-woocommerce-en-wordpress-t1.jpg'],
           ];
-          
+
           DB::table('tutorials')->insert($tutorials);
       }
     }

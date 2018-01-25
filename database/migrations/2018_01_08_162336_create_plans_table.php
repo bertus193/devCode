@@ -15,7 +15,10 @@ class CreatePlansTable extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('type');
+            $table->float('monthly_price');
+            $table->float('total_price');
+            $table->Integer('months');
             $table->string('benefits');
         });
     }
