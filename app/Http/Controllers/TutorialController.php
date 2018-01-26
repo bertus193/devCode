@@ -77,7 +77,7 @@ class TutorialController extends Controller
                 $tutorial->name         = $name;
                 $tutorial->description  = $request->input('description');
                 $tutorial->author()->associate(Author::find(9));
-                $tutorial->date         = "30/11/2015";
+                $tutorial->date         = date("Y-m-d H:i:s");
                 $tutorial->image        = "images/tutorials/laravel-5-nuestro-primer-proyecto-t1.png";
                 $tutorial->save();
                 return response()->json(['response' => 'OK']); 

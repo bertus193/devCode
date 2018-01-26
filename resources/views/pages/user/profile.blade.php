@@ -38,7 +38,7 @@ $(document).ready(function() {
             <p><b>Rango: </b><span class="text-danger">Usuario gratuito</span></p>
         @elseif ($user->rank == 1)
             <p><b>Rango: </b><span class="text-success">Usuario Premium</span></p>
-            <p><b>tipo de plan: </b>{{$user->plan->type}}</p>
+            <p><b>Tipo de plan: </b>{{$user->plan->type}}</p>
         @elseif ($user->rank == 2)
             <p><b>Rango: </b><span class="text-primary">Administrador</span></p>
         @endif

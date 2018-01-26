@@ -11,7 +11,7 @@
     <li class="nav-item active">
         <a class="nav-link" href="{{route('plan.all')}}">Planes</a>
     </li>
-    @if($signed_in && $user->rank == 1)
+    @if($signed_in && $user->rank == 2)
         <li class="nav-item active">
             <a class="nav-link" href="{{route('admin')}}">Admin</a>
         </li>  

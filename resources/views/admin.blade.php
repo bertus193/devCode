@@ -13,7 +13,7 @@
 <div class="inner-body">
     <div class="inner-box ">
         <div class="inner-body">
-        @if($user->rank == 1)
+        @if($user->rank == 2)
             <center>
                 <h4>Panel de administración</h4>
                 <div id="notificationMsg"></div>

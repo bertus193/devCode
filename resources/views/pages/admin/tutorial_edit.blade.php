@@ -9,6 +9,7 @@ function btn_tutorial_create(){
         'name': $('input[id=name]').val(), 
         'description': $('textarea[id=description]').val()
     }));
+    
     if(tutorialData.name && tutorialData.description){
         $.ajax({
             url: "{{ route('tutorial.post') }}",
@@ -24,6 +25,8 @@ function btn_tutorial_create(){
                 } else if(data.error){
                     publicErrorMsg(data.error);
                 }    
+            }, error: function (error){
+                console.log(error)
             }
         });
     }
@@ -51,7 +54,7 @@ function btn_tutorial_edit(id){
             success: function (data) {
                 console.log(data.response);
                 if(data.response && data.response == "OK"){
-                    publicSuccessMsg("Tutorial eliminado correctamente")
+                    publicSuccessMsg("Tutorial editado correctamente")
                 } else if(data.error){
                     publicErrorMsg(data.error);
                 }    
